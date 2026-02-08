@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOCATION | YUEN 湯縁</title>
+    <link rel="icon" href="../image/main.png" type="image/png">
+    <title>위치 | YUEN 湯縁</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;600&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="page-location">
 
-    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]">
+    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]" id="nav">
         <a href="../index.html" class="flex items-center no-underline hover:opacity-90 cursor-pointer"><img src="../image/アートボード%203.png" alt="YUEN 湯縁" class="h-20 md:h-24 w-auto object-contain"></a>
         <div class="flex items-center gap-6">
             <ul class="hidden md:flex space-x-10 text-sm text-[#2B2B2B]" id="nav-menu">
@@ -21,24 +22,64 @@
                 <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
                 <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
             </ul>
-            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A]">
+            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] hidden md:block">
                 <option value="ko">한국어</option>
                 <option value="ja">日本語</option>
                 <option value="en">English</option>
             </select>
+            <button type="button" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-0 border-0 bg-transparent cursor-pointer text-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#C9A24D] rounded" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile-overlay fixed inset-0 z-40 bg-[#FAF8F5]/98 backdrop-blur-sm flex flex-col justify-center items-center gap-8 md:hidden opacity-0 pointer-events-none transition-opacity duration-300" id="nav-mobile-panel" aria-hidden="true">
+        <ul class="flex flex-col items-center gap-8 text-[#2B2B2B] text-lg" id="nav-menu-mobile">
+            <li><a href="consept.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.concept">CONCEPT</a></li>
+            <li><a href="onsen.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.onsen">ONSEN</a></li>
+            <li><a href="bar.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.bar">BAR</a></li>
+            <li><a href="event.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.event">EVENT</a></li>
+            <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
+            <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
+        </ul>
+        <select id="lang-select-mobile" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] md:hidden">
+            <option value="ko">한국어</option>
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
+    </div>
 
     <header class="page-hero">
-        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="location.title">LOCATION</h1>
+        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="location.title">위치</h1>
         <span class="title-line" aria-hidden="true"></span>
     </header>
 
     <main class="py-16 px-8 max-w-6xl mx-auto">
-        <p class="text-center text-[#2B2B2B]/90 text-lg mb-10" data-i18n="footer.address">교토부 카미교구 어느 조용한 골목 123-4</p>
-        <div class="flex justify-center">
+        <section class="mb-16">
+            <h2 class="section-title-jp text-xl text-center sub-gold mb-6" data-i18n="location.criteriaTitle">장소 선정 기준</h2>
+            <span class="title-line block mx-auto mb-10" aria-hidden="true"></span>
+            <div class="max-w-2xl mx-auto space-y-6 text-[#2B2B2B]/90 leading-relaxed text-center">
+                <p data-i18n="location.criteria1">유엔은 「온천의 신」과 「술의 신」이 마주하는 경계에 서 있습니다. 그 경계를 느끼실 수 있는 장소를 찾았습니다.</p>
+                <p data-i18n="location.criteria2">하코다테 湯の川(유노카와)는 온천이 흐르는 거리입니다. 그 한복판이 아니라, 조용한 골목 한쪽을 택했습니다. 낮의 온천 거리와 밤의 한 잔이 맞닿는, 말하지 않고 지켜보는 공간이 되려 했습니다.</p>
+                <p data-i18n="location.criteria3">왼쪽에는 수증기와 붉은 빛, 오른쪽에는 앰버와 등불—그 사이를 지나는 시간만이 당신만의 고요가 됩니다. 이 골목은 그 고요를 담기에 맞는 장소입니다.</p>
+            </div>
+        </section>
+
+        <p class="text-center text-[#2B2B2B]/90 text-lg mb-10" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
+        <div class="flex justify-center mb-16">
             <img src="../image/adr.png" alt="Location map" class="location-map w-full max-w-3xl rounded-lg shadow-lg object-contain">
         </div>
+
+        <section>
+            <h2 class="section-title-jp text-xl text-center sub-gold mb-6" data-i18n="location.accessTitle">오는 길</h2>
+            <span class="title-line block mx-auto mb-8" aria-hidden="true"></span>
+            <ul class="max-w-2xl mx-auto space-y-4 text-[#2B2B2B]/90 leading-relaxed list-none pl-0">
+                <li class="pl-6 relative before:content-['・'] before:absolute before:left-0 before:text-[#C9A24D]" data-i18n="location.access1">函館市電(하코다테 시영 전차) 「湯の川温泉」 정류장에서 하차 후 도보 약 7분. 온천 거리에서 바다 쪽 골목으로 들어가시면 됩니다.</li>
+                <li class="pl-6 relative before:content-['・'] before:absolute before:left-0 before:text-[#C9A24D]" data-i18n="location.access2">函館駅(하코다테 역)에서 버스 「湯の川温泉」 행 약 25분, 종점 인근 하차 후 도보 5분.</li>
+                <li class="pl-6 relative before:content-['・'] before:absolute before:left-0 before:text-[#C9A24D]" data-i18n="location.access3">승용차 이용 시 주변에 협력 주차장이 있습니다. 예약 시 안내해 드립니다.</li>
+            </ul>
+        </section>
     </main>
 
     <footer class="footer-jp min-h-[30vh] py-20 bg-warm text-center text-xs text-[#2B2B2B]/70">
@@ -53,8 +94,8 @@
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             </a>
         </div>
-        <p class="mt-4">&copy; 2024 YURAGI ONSEN & BAR. ALL RIGHTS RESERVED.</p>
-        <p class="mt-4" data-i18n="footer.address">교토부 카미교구 어느 조용한 골목 123-4</p>
+        <p class="mt-4" data-i18n="footer.copyright">© 2024 YUEN 湯縁 ONSEN & BAR. 저작권 소유.</p>
+        <p class="mt-4" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
     </footer>
 
     <script src="../js/main.js"></script>

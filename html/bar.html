@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/main.png" type="image/png">
     <title>酒 (Bar) | YUEN 湯縁</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;600&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
@@ -10,8 +11,8 @@
 </head>
 <body class="page-bar">
 
-    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]">
-        <a href="../index.html" class="flex items-center no-underline hover:opacity-90 cursor-pointer"><img src="../image/アートボード%202.png" alt="YUEN 湯縁" class="h-20 md:h-24 w-auto object-contain"></a>
+    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]" id="nav">
+        <a href="../index.html" class="flex items-center no-underline hover:opacity-90 cursor-pointer"><img src="../image/アートボード%203.png" alt="YUEN 湯縁" class="h-20 md:h-24 w-auto object-contain"></a>
         <div class="flex items-center gap-6">
             <ul class="hidden md:flex space-x-10 text-sm text-[#2B2B2B]" id="nav-menu">
                 <li><a href="consept.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.concept">CONCEPT</a></li>
@@ -21,27 +22,119 @@
                 <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
                 <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
             </ul>
-            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A]">
+            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] hidden md:block">
                 <option value="ko">한국어</option>
                 <option value="ja">日本語</option>
                 <option value="en">English</option>
             </select>
+            <button type="button" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-0 border-0 bg-transparent cursor-pointer text-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#C9A24D] rounded" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile-overlay fixed inset-0 z-40 bg-[#FAF8F5]/98 backdrop-blur-sm flex flex-col justify-center items-center gap-8 md:hidden opacity-0 pointer-events-none transition-opacity duration-300" id="nav-mobile-panel" aria-hidden="true">
+        <ul class="flex flex-col items-center gap-8 text-[#2B2B2B] text-lg" id="nav-menu-mobile">
+            <li><a href="consept.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.concept">CONCEPT</a></li>
+            <li><a href="onsen.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.onsen">ONSEN</a></li>
+            <li><a href="bar.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.bar">BAR</a></li>
+            <li><a href="event.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.event">EVENT</a></li>
+            <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
+            <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
+        </ul>
+        <select id="lang-select-mobile" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] md:hidden">
+            <option value="ko">한국어</option>
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
+    </div>
 
     <header class="page-hero">
-        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="bar.title">03. 酒 (Bar)</h1>
+        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="bar.title">바</h1>
         <span class="title-line" aria-hidden="true"></span>
+        <p class="text-center text-[#2B2B2B]/75 max-w-2xl mx-auto mt-4 text-sm tracking-wide" data-i18n="bar.programIntro">유엔 바는 지역 기반 음료 큐레이션 체계에 따라 운영됩니다.</p>
     </header>
 
     <main class="py-16 px-8 max-w-6xl mx-auto">
+        <section class="bar-program mb-24">
+            <h2 class="section-title-jp text-xl text-center sub-gold mb-8" data-i18n="bar.frameworkTitle">바 프로그램 구성</h2>
+            <span class="title-line" aria-hidden="true"></span>
+            <ol class="bar-program-list max-w-3xl mx-auto mt-12 space-y-10">
+                <li class="bar-program-item">
+                    <span class="bar-program-num" aria-hidden="true">1</span>
+                    <div class="content-block-jp">
+                        <h3 class="text-lg sub-gold mb-2 font-semibold" data-i18n="bar.section1Title">선정 기준</h3>
+                        <p class="leading-loose text-[#2B2B2B]/80 text-sm" data-i18n="bar.section1Desc">현지 양조장·증류소와의 직접 연계, 품질 검증(시음·성분), 지역 한정(地酒・限定) 조건을 충족하는 품목만 선별합니다.</p>
+                    </div>
+                </li>
+                <li class="bar-program-item">
+                    <span class="bar-program-num" aria-hidden="true">2</span>
+                    <div class="content-block-jp">
+                        <h3 class="text-lg sub-gold mb-2 font-semibold" data-i18n="bar.section2Title">카테고리 체계</h3>
+                        <p class="leading-loose text-[#2B2B2B]/80 text-sm" data-i18n="bar.section2Desc">지주(地酒), 재패니즈 위스키, 오리지널 칵테일로 구분하며, 각 카테고리별로 출처·특성에 따른 일관된 분류를 적용합니다.</p>
+                    </div>
+                </li>
+                <li class="bar-program-item">
+                    <span class="bar-program-num" aria-hidden="true">3</span>
+                    <div class="content-block-jp">
+                        <h3 class="text-lg sub-gold mb-2 font-semibold" data-i18n="bar.section3Title">온천과의 페어링</h3>
+                        <p class="leading-loose text-[#2B2B2B]/80 text-sm" data-i18n="bar.section3Desc">족욕 후 이완·혈행 개선 상태에서의 소량 음주를 전제로, 강도·온도·맛의 균형을 맞춘 메뉴 구성을 원칙으로 합니다.</p>
+                    </div>
+                </li>
+            </ol>
+            <div class="max-w-2xl mx-auto mt-16 pt-12 border-t border-[#2B2B2B]/10">
+                <h3 class="section-title-jp text-lg text-center sub-gold mb-4" data-i18n="bar.publicTitle">함께 여는 한 잔</h3>
+                <span class="title-line block w-10 mx-auto mb-6" aria-hidden="true"></span>
+                <p class="text-center leading-relaxed text-[#2B2B2B]/85 text-sm" data-i18n="bar.publicDesc">유엔 바는 한 사람의 밤만이 아니라, 동네와 여행자가 만나는 자리입니다. 위의 선정 기준과 메뉴 구성은 ‘누구나 같은 기준으로 한 잔을 받을 수 있게’ 하려는 생각에서 비롯했습니다. 지역 양조장과의 연결, 온천과의 페어링은 그 한 잔이 단순한 상품이 아니라, 이곳에서만 나누는 공동의 시간이 되도록 하기 위함입니다.</p>
+            </div>
+        </section>
+
+        <section class="text-center mb-20">
+            <h2 class="section-title-jp text-2xl sub-gold mb-4" data-i18n="bar.hakodateTitle">函館の酒 — 하코다테 술</h2>
+            <span class="title-line" aria-hidden="true"></span>
+            <p class="leading-loose text-[#2B2B2B]/80 max-w-2xl mx-auto mt-6" data-i18n="bar.hakodateDesc">
+                유엔 바에서는 홋카이도·함관 지역의 지주(地酒)와 재패니즈 위스키를 중심으로 한 메뉴를 갖추고 있습니다. 현지 양조장의 사케, 지역 한정 위스키를 곁들인 오리지널 칵테일로 하코다테의 밤을 즐겨 보세요.
+            </p>
+        </section>
+
+        <section class="bar-recommend mb-24">
+            <h2 class="section-title-jp text-xl text-center sub-gold mb-8" data-i18n="bar.recommendTitle">おすすめ</h2>
+            <span class="title-line" aria-hidden="true"></span>
+            <ul class="bar-menu-list max-w-2xl mx-auto mt-12 space-y-6">
+                <li class="bar-menu-item flex justify-between items-baseline gap-4 py-3 border-b border-[#2B2B2B]/10">
+                    <div>
+                        <span class="font-semibold text-[#2B2B2B] tracking-wide" data-i18n="bar.item1Name">函館地酒 一杯</span>
+                        <p class="text-sm text-[#2B2B2B]/70 mt-0.5" data-i18n="bar.item1Desc">北海道・函館の地元蔵元の日本酒</p>
+                    </div>
+                    <span class="bar-price whitespace-nowrap" data-i18n="bar.item1Price">1,200円（税込）</span>
+                </li>
+                <li class="bar-menu-item flex justify-between items-baseline gap-4 py-3 border-b border-[#2B2B2B]/10">
+                    <div>
+                        <span class="font-semibold text-[#2B2B2B] tracking-wide" data-i18n="bar.item2Name">ジャパニーズウイスキー</span>
+                        <p class="text-sm text-[#2B2B2B]/70 mt-0.5" data-i18n="bar.item2Desc">地域限定・シングルモルト</p>
+                    </div>
+                    <span class="bar-price whitespace-nowrap" data-i18n="bar.item2Price">1,800円（税込）</span>
+                </li>
+                <li class="bar-menu-item flex justify-between items-baseline gap-4 py-3 border-b border-[#2B2B2B]/10">
+                    <div>
+                        <span class="font-semibold text-[#2B2B2B] tracking-wide" data-i18n="bar.item3Name">オリジナルカクテル</span>
+                        <p class="text-sm text-[#2B2B2B]/70 mt-0.5" data-i18n="bar.item3Desc">地酒・ウイスキーベース</p>
+                    </div>
+                    <span class="bar-price whitespace-nowrap" data-i18n="bar.item3Price">1,500円（税込）</span>
+                </li>
+            </ul>
+        </section>
+
         <div class="grid md:grid-cols-2 gap-20 items-center bg-warm py-24 px-8 -mx-8">
             <div class="order-2 md:order-1 h-80 bg-gray-100 overflow-hidden img-wrap-jp">
-                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 hover:scale-105">
+                <img src="../image/glass.png" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 hover:scale-105">
             </div>
             <div class="order-1 md:order-2 content-block-jp">
-                <p class="leading-loose text-[#2B2B2B]/80" data-i18n="bar.desc">
-                    엄선된 재패니즈 위스키와 지역 사케를 베이스로 한 오리지널 칵테일. 조용히 흐르는 재즈 선율과 함께 어른의 시간을 즐기실 수 있습니다.
+                <h2 class="section-title-jp text-xl sub-gold mb-4" data-i18n="bar.glassTitle">한 잔을 담는 그릇</h2>
+                <span class="title-line block w-12 mb-6" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80" data-i18n="bar.glassDesc">
+                    유엔 바에서는 그 한 잔을 담기 위해 제작한 오리지널 글라스를 사용합니다. 온천과 술이 맞닿는 경계를 담는 그릇으로, 손에 잡히는 감과 입가에 닿는 선을 하나하나 맞춰 만든 잔입니다. 지주와 위스키, 칵테일을 이 잔에 담아 드립니다.
                 </p>
             </div>
         </div>
@@ -59,8 +152,8 @@
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             </a>
         </div>
-        <p class="mt-4">&copy; 2024 YURAGI ONSEN & BAR. ALL RIGHTS RESERVED.</p>
-        <p class="mt-4" data-i18n="footer.address">교토부 카미교구 어느 조용한 골목 123-4</p>
+        <p class="mt-4" data-i18n="footer.copyright">© 2024 YUEN 湯縁 ONSEN & BAR. 저작권 소유.</p>
+        <p class="mt-4" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
     </footer>
 
     <script src="../js/main.js"></script>

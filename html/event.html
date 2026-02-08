@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/main.png" type="image/png">
     <title>イベント | YUEN 湯縁</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;600&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
@@ -10,7 +11,7 @@
 </head>
 <body class="page-event">
 
-    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]">
+    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]" id="nav">
         <a href="../index.html" class="flex items-center no-underline hover:opacity-90 cursor-pointer"><img src="../image/アートボード%203.png" alt="YUEN 湯縁" class="h-20 md:h-24 w-auto object-contain"></a>
         <div class="flex items-center gap-6">
             <ul class="hidden md:flex space-x-10 text-sm text-[#2B2B2B]" id="nav-menu">
@@ -21,53 +22,102 @@
                 <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
                 <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
             </ul>
-            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A]">
+            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] hidden md:block">
                 <option value="ko">한국어</option>
                 <option value="ja">日本語</option>
                 <option value="en">English</option>
             </select>
+            <button type="button" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-0 border-0 bg-transparent cursor-pointer text-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#C9A24D] rounded" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile-overlay fixed inset-0 z-40 bg-[#FAF8F5]/98 backdrop-blur-sm flex flex-col justify-center items-center gap-8 md:hidden opacity-0 pointer-events-none transition-opacity duration-300" id="nav-mobile-panel" aria-hidden="true">
+        <ul class="flex flex-col items-center gap-8 text-[#2B2B2B] text-lg" id="nav-menu-mobile">
+            <li><a href="consept.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.concept">CONCEPT</a></li>
+            <li><a href="onsen.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.onsen">ONSEN</a></li>
+            <li><a href="bar.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.bar">BAR</a></li>
+            <li><a href="event.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.event">EVENT</a></li>
+            <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
+            <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
+        </ul>
+        <select id="lang-select-mobile" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] md:hidden">
+            <option value="ko">한국어</option>
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
+    </div>
 
-    <header class="page-hero">
-        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="event.title">04. 이벤트</h1>
-        <span class="event-title-line" aria-hidden="true"></span>
-        <p class="text-center text-[#2B2B2B]/70 mt-6 max-w-2xl mx-auto event-intro leading-relaxed" data-i18n="event.intro">달과 토끼 테마의 바 이벤트에 참여해 보세요.</p>
-    </header>
+    <div id="event-list-view" class="event-list-view">
+        <header class="page-hero page-hero--event">
+            <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="event.eventPageTitle">🌙 YUEN 이벤트</h1>
+            <span class="title-line" aria-hidden="true"></span>
+            <p class="text-center text-[#2B2B2B]/80 text-lg mt-4" data-i18n="event.subtitle">달을 기반으로 한 이벤트</p>
+            <p class="text-center text-[#2B2B2B]/70 mt-6 max-w-2xl mx-auto event-intro leading-relaxed" data-i18n="event.intro">YUEN의 이벤트는 달의 리듬에 맞춰 진행됩니다.</p>
+        </header>
 
-    <main class="event-section--jp py-16 px-8 max-w-6xl mx-auto">
-        <div class="space-y-12">
-            <div class="scroll-reveal grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-                <div class="md:col-span-4 flex justify-center md:justify-end">
-                    <div class="event-number" data-i18n="event.number1">一</div>
+        <main class="event-section--jp py-16 px-8 max-w-6xl mx-auto">
+            <div class="space-y-12">
+                <div class="scroll-reveal grid md:grid-cols-12 gap-6 md:gap-8 items-start event-row" data-event-id="newMoon" role="button" tabindex="0">
+                    <div class="md:col-span-4 flex justify-center md:justify-end">
+                        <div class="event-thumb-wrap event-thumb-clickable w-full max-w-[200px] overflow-hidden rounded-lg cursor-pointer">
+                            <img src="../image/event4.jpg" alt="" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 event-card">
+                        <h2 class="text-xl sub-gold mb-3" data-i18n="event.newMoonTitle">신월 — 달토끼를 찾아서</h2>
+                        <p class="leading-loose text-[#2B2B2B]/80" data-i18n="event.newMoonDesc">신월 밤에 달토끼가 사라진다고 전해집니다.<br>작은 토끼 모티프가 공간 곳곳에 조용히 숨겨져 있습니다.<br>고객님이 우연히 발견하실 수도 있습니다.<br>부드럽게 발견하고 주의를 기울이는 밤입니다.</p>
+                    </div>
                 </div>
-                <div class="md:col-span-8 event-card">
-                    <h2 class="text-xl sub-gold mb-3" data-i18n="event.rabbitTitle">숨은 토끼 찾기</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="event.rabbitDesc">매장 곳곳(메뉴판 구석, 바 선반, 정원 돌틈 등)에 작은 토끼 미니어처·토끼 문양 인장을 숨겨두었습니다. 3개 이상 찾아 사진을 찍고 SNS에 당사 계정을 태그해 인증하시면 위스키 샘플러 1잔을 무료로 드립니다.</p>
+                <div class="event-divider" aria-hidden="true"></div>
+                <div class="scroll-reveal grid md:grid-cols-12 gap-6 md:gap-8 items-start event-row" data-event-id="fullMoon" role="button" tabindex="0">
+                    <div class="md:col-span-4 flex justify-center md:justify-end">
+                        <div class="event-thumb-wrap event-thumb-clickable w-full max-w-[200px] overflow-hidden rounded-lg cursor-pointer">
+                            <img src="../image/event5.jpg" alt="" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 event-card">
+                        <h2 class="text-xl sub-gold mb-3" data-i18n="event.fullMoonTitle">보름달 — 달토에게 보내는 편지</h2>
+                        <p class="leading-loose text-[#2B2B2B]/80" data-i18n="event.fullMoonDesc">게스트는 작은 카드에 소원과 마음을 적습니다.<br>일본 에마 전통에 영감을 받은 기획입니다.</p>
+                    </div>
                 </div>
             </div>
-            <div class="event-divider" aria-hidden="true"></div>
-            <div class="scroll-reveal grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-                <div class="md:col-span-4 flex justify-center md:justify-end">
-                    <div class="event-number" data-i18n="event.number2">二</div>
-                </div>
-                <div class="md:col-span-8 event-card">
-                    <h2 class="text-xl sub-gold mb-3" data-i18n="event.photoTitle">포토존 — 달에 착륙한 토끼</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="event.photoDesc">바 테이블 한편에 ‘달에 착륙한 토끼’ 테마의 미니어처 디오라마를 설치해 두었습니다. 인스타그램에 올리기 좋은 포토 스팟입니다.</p>
+        </main>
+    </div>
+
+    <div id="event-detail-view" class="event-detail-view" aria-hidden="true">
+        <button type="button" class="event-detail-close" aria-label="닫기"><span aria-hidden="true">×</span></button>
+        <div class="event-detail-inner">
+            <div class="event-detail-content" data-event-id="newMoon" hidden>
+                <div class="event-detail-img-wrap"><img src="../image/event4.jpg" alt="" class="w-full h-full object-cover"></div>
+                <h2 class="section-title-jp text-2xl sub-gold mt-8 mb-4" data-i18n="event.newMoonTitle">신월 — 달토끼를 찾아서</h2>
+                <span class="title-line" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80 mt-6" data-i18n="event.newMoonDesc">신월 밤에 달토끼가 사라진다고 전해집니다.<br>작은 토끼 모티프가 공간 곳곳에 조용히 숨겨져 있습니다.<br>고객님이 우연히 발견하실 수도 있습니다.<br>부드럽게 발견하고 주의를 기울이는 밤입니다.</p>
+                <h3 class="text-lg font-semibold text-[#2B2B2B] mt-10 mb-3" data-i18n="event.participateLabel">참여 방법</h3>
+                <div class="event-howto text-[#2B2B2B]/80 text-sm leading-relaxed" data-i18n="event.newMoonHowTo">
+                    <p class="mb-2">① 매장 안(메뉴판 구석, 바 선반, 정원 돌틈 등)에 숨겨진 토끼 미니어처·토끼 문양을 찾습니다.</p>
+                    <p class="mb-2">② 3개 이상 찾으셨다면 찾은 것들을 사진으로 찍습니다.</p>
+                    <p class="mb-2">③ 그 사진을 SNS에 올리시고, 당사 공식 계정을 태그해 주세요.</p>
+                    <p class="mb-0">④ 인증해 주신 분께 위스키 샘플러 1잔을 무료로 드립니다. 매장에서 스태프에게 보여 주시면 됩니다.</p>
                 </div>
             </div>
-            <div class="event-divider" aria-hidden="true"></div>
-            <div class="scroll-reveal grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-                <div class="md:col-span-4 flex justify-center md:justify-end">
-                    <div class="event-number" data-i18n="event.number3">三</div>
-                </div>
-                <div class="md:col-span-8 event-card">
-                    <h2 class="text-xl sub-gold mb-3" data-i18n="event.letterTitle">달의 뒷면에서 온 편지</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="event.letterDesc">매장 한쪽에 작은 우체통과 ‘달 토끼’ 전용 미니 엽서를 비치했습니다. 위스키를 마시며 느낀 점이나 소원을 적어 우체통에 넣어 주세요. 일본의 에마(絵馬) 문화와 맞닿아, 추첨을 통해 다음 방문 시 사용 가능한 ‘프리미엄 위스키 업그레이드 권’을 우편으로 보내 드립니다.</p>
+            <div class="event-detail-content" data-event-id="fullMoon" hidden>
+                <div class="event-detail-img-wrap"><img src="../image/event5.jpg" alt="" class="w-full h-full object-cover"></div>
+                <h2 class="section-title-jp text-2xl sub-gold mt-8 mb-4" data-i18n="event.fullMoonTitle">보름달 — 달토에게 보내는 편지</h2>
+                <span class="title-line" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80 mt-6" data-i18n="event.fullMoonDesc">게스트는 작은 카드에 소원과 마음을 적습니다.<br>일본 에마 전통에 영감을 받은 기획입니다.</p>
+                <h3 class="text-lg font-semibold text-[#2B2B2B] mt-10 mb-3" data-i18n="event.participateLabel">참여 방법</h3>
+                <div class="event-howto text-[#2B2B2B]/80 text-sm leading-relaxed" data-i18n="event.fullMoonHowTo">
+                    <p class="mb-2">① 매장 한쪽에 비치된 작은 우체통과 ‘달 토끼’ 전용 미니 엽서를 이용합니다.</p>
+                    <p class="mb-2">② 위스키를 마시며 느낀 점, 소원, 하고 싶은 말 등을 엽서에 적습니다.</p>
+                    <p class="mb-2">③ 적은 엽서를 매장 내 우체통에 넣어 주세요.</p>
+                    <p class="mb-0">④ 추첨을 통해 당첨되시면, 다음 방문 시 사용 가능한 ‘프리미엄 위스키 업그레이드 권’을 우편으로 보내 드립니다.</p>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
     <footer class="footer-jp min-h-[30vh] py-20 bg-warm text-center text-xs text-[#2B2B2B]/70">
         <div class="footer-social" aria-label="SNS">
@@ -81,8 +131,8 @@
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             </a>
         </div>
-        <p class="mt-4">&copy; 2024 YURAGI ONSEN & BAR. ALL RIGHTS RESERVED.</p>
-        <p class="mt-4" data-i18n="footer.address">교토부 카미교구 어느 조용한 골목 123-4</p>
+        <p class="mt-4" data-i18n="footer.copyright">© 2024 YUEN 湯縁 ONSEN & BAR. 저작권 소유.</p>
+        <p class="mt-4" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
     </footer>
 
     <script src="../js/main.js"></script>

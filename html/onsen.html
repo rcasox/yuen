@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/main.png" type="image/png">
     <title>湯 (Onsen) | YUEN 湯縁</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;600&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
@@ -10,7 +11,7 @@
 </head>
 <body class="page-onsen">
 
-    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]">
+    <nav class="nav-jp flex justify-between items-center p-8 fixed w-full z-50 nav-bg backdrop-blur text-[#2B2B2B]" id="nav">
         <a href="../index.html" class="flex items-center no-underline hover:opacity-90 cursor-pointer"><img src="../image/アートボード%203.png" alt="YUEN 湯縁" class="h-20 md:h-24 w-auto object-contain"></a>
         <div class="flex items-center gap-6">
             <ul class="hidden md:flex space-x-10 text-sm text-[#2B2B2B]" id="nav-menu">
@@ -21,50 +22,148 @@
                 <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
                 <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
             </ul>
-            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A]">
+            <select id="lang-select" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] hidden md:block">
                 <option value="ko">한국어</option>
                 <option value="ja">日本語</option>
                 <option value="en">English</option>
             </select>
+            <button type="button" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 p-0 border-0 bg-transparent cursor-pointer text-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#C9A24D] rounded" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+                <span class="nav-ham-line block w-6 h-0.5 bg-current rounded transition-all duration-300 origin-center"></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile-overlay fixed inset-0 z-40 bg-[#FAF8F5]/98 backdrop-blur-sm flex flex-col justify-center items-center gap-8 md:hidden opacity-0 pointer-events-none transition-opacity duration-300" id="nav-mobile-panel" aria-hidden="true">
+        <ul class="flex flex-col items-center gap-8 text-[#2B2B2B] text-lg" id="nav-menu-mobile">
+            <li><a href="consept.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.concept">CONCEPT</a></li>
+            <li><a href="onsen.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.onsen">ONSEN</a></li>
+            <li><a href="bar.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.bar">BAR</a></li>
+            <li><a href="event.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.event">EVENT</a></li>
+            <li><a href="coaster.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.coaster">COASTER</a></li>
+            <li><a href="location.html" class="nav-link hover:text-[#C9A24D] transition-colors" data-i18n="nav.location">LOCATION</a></li>
+        </ul>
+        <select id="lang-select-mobile" class="bg-transparent border border-[#C73A3A] text-[#C73A3A] px-4 py-2 text-sm tracking-wider cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C73A3A] md:hidden">
+            <option value="ko">한국어</option>
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
+    </div>
 
-    <header class="page-hero">
-        <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="onsen.title">01. 湯 (Onsen)</h1>
-        <span class="title-line" aria-hidden="true"></span>
-    </header>
-
-    <main class="py-16 px-8 max-w-6xl mx-auto">
-        <div class="space-y-32">
-            <div class="grid md:grid-cols-2 gap-20 items-center scroll-reveal">
-                <div class="h-80 bg-gray-100 overflow-hidden img-wrap-jp">
-                    <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 hover:scale-105">
+    <div id="onsen-list-view" class="onsen-list-view">
+        <header class="page-hero">
+            <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="onsen.footbathPageTitle">족욕 온천</h1>
+            <span class="title-line" aria-hidden="true"></span>
+            <p class="text-center text-[#2B2B2B]/80 max-w-2xl mx-auto mt-6 leading-relaxed" data-i18n="onsen.footbathIntro">유엔은 홋카이도 함관(函館) 유노카와의 천연 온천수를 사용한 족욕을 안내합니다. 야외에서 밤바람과 함께 발을 담그며 휴식을 취하실 수 있습니다. 아래에서 족욕의 효능을 살펴보세요.</p>
+            <div class="onsen-hero-slider mt-12 max-w-4xl mx-auto">
+                <div class="onsen-slider-track">
+                    <div class="onsen-slide"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=800&q=80" alt="온천"></div>
+                    <div class="onsen-slide"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="족욕"></div>
+                    <div class="onsen-slide"><img src="../image/족1.png" alt="족욕 효능"></div>
                 </div>
-                <div class="content-block-jp">
-                    <h2 class="text-xl sub-gold mb-4" data-i18n="onsen.title1">温かみのある湯</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="onsen.desc1">湯の川の天然温泉。約40℃の湯で足元からゆっくりとほぐれていきます。</p>
+                <div class="onsen-slider-dots" aria-hidden="true">
+                    <span class="onsen-slider-dot" data-slide="0"></span>
+                    <span class="onsen-slider-dot" data-slide="1"></span>
+                    <span class="onsen-slider-dot" data-slide="2"></span>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-20 items-center scroll-reveal">
-                <div class="order-2 md:order-1 content-block-jp">
-                    <h2 class="text-xl sub-gold mb-4" data-i18n="onsen.title2">開放感のある空間</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="onsen.desc2">屋外の足湯スペース。夜風と共に、開放的なひとときをお過ごしください。</p>
+        </header>
+
+        <main class="py-16 px-8 max-w-6xl mx-auto">
+            <section class="onsen-viz max-w-3xl mx-auto mb-24 scroll-reveal">
+                <h2 class="section-title-jp text-xl text-center sub-gold mb-2" data-i18n="onsen.vizTitle">온천과 한 잔의 시너지</h2>
+                <p class="text-center text-[#2B2B2B]/70 text-sm mb-10" data-i18n="onsen.vizSubtitle">족욕과 바 한 잔이 주는 효과</p>
+                <span class="title-line" aria-hidden="true"></span>
+                <ul class="onsen-viz-list mt-10 space-y-6" aria-label="온천과 술의 시너지 효과">
+                    <li class="onsen-viz-item">
+                        <div class="onsen-viz-label">
+                            <span class="onsen-viz-name" data-i18n="onsen.vizMatch">술과 온천 궁합</span>
+                            <span class="onsen-viz-value" aria-hidden="true">95%</span>
+                        </div>
+                        <div class="onsen-viz-bar" role="presentation"><div class="onsen-viz-bar-fill" style="--bar-w: 95%;"></div></div>
+                    </li>
+                    <li class="onsen-viz-item">
+                        <div class="onsen-viz-label">
+                            <span class="onsen-viz-name" data-i18n="onsen.vizRelax">이완 효과</span>
+                            <span class="onsen-viz-value" aria-hidden="true">88%</span>
+                        </div>
+                        <div class="onsen-viz-bar"><div class="onsen-viz-bar-fill" style="--bar-w: 88%;"></div></div>
+                    </li>
+                    <li class="onsen-viz-item">
+                        <div class="onsen-viz-label">
+                            <span class="onsen-viz-name" data-i18n="onsen.vizEmotional">정서적 안정</span>
+                            <span class="onsen-viz-value" aria-hidden="true">90%</span>
+                        </div>
+                        <div class="onsen-viz-bar"><div class="onsen-viz-bar-fill" style="--bar-w: 90%;"></div></div>
+                    </li>
+                    <li class="onsen-viz-item">
+                        <div class="onsen-viz-label">
+                            <span class="onsen-viz-name" data-i18n="onsen.vizCirculation">혈행·피로 개선</span>
+                            <span class="onsen-viz-value" aria-hidden="true">85%</span>
+                        </div>
+                        <div class="onsen-viz-bar"><div class="onsen-viz-bar-fill" style="--bar-w: 85%;"></div></div>
+                    </li>
+                    <li class="onsen-viz-item">
+                        <div class="onsen-viz-label">
+                            <span class="onsen-viz-name" data-i18n="onsen.vizSleep">숙면</span>
+                            <span class="onsen-viz-value" aria-hidden="true">92%</span>
+                        </div>
+                        <div class="onsen-viz-bar"><div class="onsen-viz-bar-fill" style="--bar-w: 92%;"></div></div>
+                    </li>
+                </ul>
+            </section>
+
+            <h2 class="section-title-jp text-xl text-center sub-gold mb-12" data-i18n="footbath.title">02. 족욕에 효능</h2>
+            <span class="title-line" aria-hidden="true"></span>
+            <div class="grid md:grid-cols-3 gap-12 mt-16">
+                <div class="scroll-reveal text-center onsen-benefit-row cursor-pointer" data-benefit-id="benefit1" role="button" tabindex="0">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden img-wrap-jp rounded-sm mb-6 onsen-benefit-thumb">
+                        <img src="../image/족1.png" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 transition duration-300">
+                    </div>
+                    <h3 class="text-lg sub-gold mb-2 text-left font-semibold" data-i18n="footbath.benefit1Title">혈행 개선</h3>
+                    <p class="text-[#2B2B2B]/80 text-sm leading-relaxed text-left" data-i18n="footbath.benefit1Desc">따뜻한 물에 발을 담그면 말초 혈관이 확장되어 혈액 순환이 좋아집니다.</p>
                 </div>
-                <div class="order-1 md:order-2 h-80 bg-gray-100 overflow-hidden img-wrap-jp">
-                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 hover:scale-105">
+                <div class="scroll-reveal text-center onsen-benefit-row cursor-pointer" data-benefit-id="benefit2" role="button" tabindex="0">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden img-wrap-jp rounded-sm mb-6 onsen-benefit-thumb">
+                        <img src="../image/족2.png" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 transition duration-300">
+                    </div>
+                    <h3 class="text-lg sub-gold mb-2 text-left font-semibold" data-i18n="footbath.benefit2Title">피로 회복</h3>
+                    <p class="text-[#2B2B2B]/80 text-sm leading-relaxed text-left" data-i18n="footbath.benefit2Desc">족욕으로 근육이 이완되고 쌓인 피로가 풀려 몸이 가벼워집니다.</p>
+                </div>
+                <div class="scroll-reveal text-center onsen-benefit-row cursor-pointer" data-benefit-id="benefit3" role="button" tabindex="0">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden img-wrap-jp rounded-sm mb-6 onsen-benefit-thumb">
+                        <img src="../image/족3.png" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 transition duration-300">
+                    </div>
+                    <h3 class="text-lg sub-gold mb-2 text-left font-semibold" data-i18n="footbath.benefit3Title">숙면·이완</h3>
+                    <p class="text-[#2B2B2B]/80 text-sm leading-relaxed text-left" data-i18n="footbath.benefit3Desc">저녁 족욕은 심신을 진정시켜 숙면에 도움이 됩니다.</p>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-20 items-center scroll-reveal">
-                <div class="h-80 bg-gray-100 overflow-hidden img-wrap-jp">
-                    <img src="https://images.unsplash.com/photo-1590059536241-103348887ee2?auto=format&fit=crop&q=80" alt="" class="w-full h-full object-cover opacity-92 hover:opacity-100 hover:scale-105">
-                </div>
-                <div class="content-block-jp">
-                    <h2 class="text-xl sub-gold mb-4" data-i18n="onsen.title3">旅の疲れを癒す</h2>
-                    <p class="leading-loose text-[#2B2B2B]/80" data-i18n="onsen.desc3">歩き疲れた足を、温かい湯に浸けて。函館の夜を、ゆったりと。</p>
-                </div>
+        </main>
+    </div>
+
+    <div id="onsen-detail-view" class="onsen-detail-view" aria-hidden="true">
+        <button type="button" class="onsen-detail-close" aria-label="닫기"><span aria-hidden="true">×</span></button>
+        <div class="onsen-detail-inner">
+            <div class="onsen-detail-content" data-benefit-id="benefit1" hidden>
+                <div class="onsen-detail-img-wrap"><img src="../image/족1.png" alt="" class="w-full h-full object-cover"></div>
+                <h2 class="section-title-jp text-2xl sub-gold mt-8 mb-4" data-i18n="footbath.benefit1Title">혈행 개선</h2>
+                <span class="title-line" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80 mt-6" data-i18n="footbath.benefit1Desc">따뜻한 물에 발을 담그면 말초 혈관이 확장되어 혈액 순환이 좋아집니다.</p>
+            </div>
+            <div class="onsen-detail-content" data-benefit-id="benefit2" hidden>
+                <div class="onsen-detail-img-wrap"><img src="../image/족2.png" alt="" class="w-full h-full object-cover"></div>
+                <h2 class="section-title-jp text-2xl sub-gold mt-8 mb-4" data-i18n="footbath.benefit2Title">피로 회복</h2>
+                <span class="title-line" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80 mt-6" data-i18n="footbath.benefit2Desc">족욕으로 근육이 이완되고 쌓인 피로가 풀려 몸이 가벼워집니다.</p>
+            </div>
+            <div class="onsen-detail-content" data-benefit-id="benefit3" hidden>
+                <div class="onsen-detail-img-wrap"><img src="../image/족3.png" alt="" class="w-full h-full object-cover"></div>
+                <h2 class="section-title-jp text-2xl sub-gold mt-8 mb-4" data-i18n="footbath.benefit3Title">숙면·이완</h2>
+                <span class="title-line" aria-hidden="true"></span>
+                <p class="leading-loose text-[#2B2B2B]/80 mt-6" data-i18n="footbath.benefit3Desc">저녁 족욕은 심신을 진정시켜 숙면에 도움이 됩니다.</p>
             </div>
         </div>
-    </main>
+    </div>
 
     <footer class="footer-jp min-h-[30vh] py-20 bg-warm text-center text-xs text-[#2B2B2B]/70">
         <div class="footer-social" aria-label="SNS">
@@ -78,8 +177,8 @@
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             </a>
         </div>
-        <p class="mt-4">&copy; 2024 YURAGI ONSEN & BAR. ALL RIGHTS RESERVED.</p>
-        <p class="mt-4" data-i18n="footer.address">교토부 카미교구 어느 조용한 골목 123-4</p>
+        <p class="mt-4" data-i18n="footer.copyright">© 2024 YUEN 湯縁 ONSEN & BAR. 저작권 소유.</p>
+        <p class="mt-4" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
     </footer>
 
     <script src="../js/main.js"></script>

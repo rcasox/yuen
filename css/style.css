@@ -4,6 +4,7 @@
     --sub-cream: #F6F2E8;
     --sub-gold: #C9A24D;
     --bg-warm: #FAF8F5;
+    --sumi: rgba(43, 43, 43, 0.12);
 }
 
 html {
@@ -11,15 +12,23 @@ html {
 }
 
 /* ——— Japanese theme (global) ——— */
+/* 和紙・青海波: washi + seigaiha hint */
 body {
     font-family: 'Noto Serif JP', 'Noto Serif KR', serif;
     background-color: var(--bg-warm);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='32' viewBox='0 0 64 32'%3E%3Cpath d='M0 32 Q16 0 32 32 Q48 0 64 32' fill='none' stroke='%232B2B2B' stroke-width='0.2' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 64px 32px;
     color: var(--sub-dark);
     letter-spacing: 0.03em;
+    line-height: 1.85;
+}
+body.jp-style .section-title-jp {
+    font-family: 'Noto Serif JP', serif;
 }
 
 body .nav-jp {
-    border-bottom: 1px solid rgba(201, 162, 77, 0.25);
+    border-bottom: none;
+    box-shadow: 0 1px 0 rgba(201, 162, 77, 0.2), 0 2px 0 rgba(201, 162, 77, 0.08);
     letter-spacing: 0.15em;
 }
 body .nav-jp ul li {
@@ -43,46 +52,83 @@ body .hero-jp h1 {
     color: #000;
 }
 body .hero-jp .hero-tagline {
+    font-family: 'Zen Antique', 'Noto Serif JP', serif;
     letter-spacing: 0.4em;
     color: #C9A24D;
 }
 body .hero-jp .hero-tagline::after {
     content: '';
     display: block;
-    width: 2rem;
-    height: 1px;
-    background: #C9A24D;
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--main), var(--sub-gold), transparent);
     margin: 0.75rem auto 0;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 body .hero-jp h1 {
-    letter-spacing: 0.08em;
+    font-family: 'Zen Antique', 'Noto Serif JP', 'Noto Serif KR', serif;
+    letter-spacing: 0.12em;
     font-weight: 300;
 }
 body .hero-jp .hero-desc {
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: #2B2B2B;
+    font-weight: 300;
+}
+/* Hero: double-line accent (二重線) */
+.hero-jp {
+    position: relative;
+}
+.hero-jp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 0;
+    border-top: 1px solid rgba(201, 162, 77, 0.4);
+    box-shadow: 0 4px 0 rgba(201, 162, 77, 0.35);
+}
+.hero-jp::after {
+    content: '湯';
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.6em;
+    color: var(--sub-gold);
+    opacity: 0.35;
+}
+@media (max-width: 767px) {
+    .hero-jp::after { display: none; }
 }
 
 body .section-title-jp {
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     font-weight: 600;
+    font-family: 'Noto Serif JP', serif;
 }
 body .section-title-jp + .title-line {
     display: block;
-    width: 4rem;
-    height: 1px;
+    width: 5rem;
+    height: 2px;
     background: linear-gradient(90deg, transparent, var(--sub-gold), transparent);
     margin: 0.75rem auto 2.5rem;
+    border-radius: 1px;
 }
 
 body .content-block-jp {
-    border-left: 2px solid rgba(201, 162, 77, 0.4);
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, var(--sub-gold), rgba(201, 162, 77, 0.2)) 1;
     padding-left: 1.5rem;
 }
 body .content-block-jp h3 {
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     font-weight: 600;
+    font-family: 'Noto Serif JP', serif;
 }
 
 .page-hero {
@@ -100,9 +146,84 @@ body .content-block-jp h3 {
     margin-bottom: 0.5rem;
 }
 
+/* ——— Onsen hero: auto image slider ——— */
+.onsen-hero-slider {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(43, 43, 43, 0.08);
+}
+.onsen-slider-track {
+    display: flex;
+    width: 300%;
+    animation: onsen-slide 15s ease-in-out infinite;
+}
+.onsen-slide {
+    flex: 0 0 33.333%;
+    width: 33.333%;
+}
+.onsen-slide img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+@keyframes onsen-slide {
+    0%, 25% { transform: translateX(0); }
+    30%, 55% { transform: translateX(-33.333%); }
+    60%, 85% { transform: translateX(-66.666%); }
+    90%, 100% { transform: translateX(0); }
+}
+.onsen-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+.onsen-slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(201, 162, 77, 0.35);
+    transition: background 0.3s ease;
+}
+.onsen-slider-dot:nth-child(1) { animation: onsen-dot-1 15s ease-in-out infinite; }
+.onsen-slider-dot:nth-child(2) { animation: onsen-dot-2 15s ease-in-out infinite; }
+.onsen-slider-dot:nth-child(3) { animation: onsen-dot-3 15s ease-in-out infinite; }
+@keyframes onsen-dot-1 {
+    0%, 25%, 90%, 100% { background: var(--sub-gold); }
+    30%, 85% { background: rgba(201, 162, 77, 0.35); }
+}
+@keyframes onsen-dot-2 {
+    0%, 25%, 90%, 100% { background: rgba(201, 162, 77, 0.35); }
+    30%, 55% { background: var(--sub-gold); }
+    60%, 85% { background: rgba(201, 162, 77, 0.35); }
+}
+@keyframes onsen-dot-3 {
+    0%, 55%, 90%, 100% { background: rgba(201, 162, 77, 0.35); }
+    60%, 85% { background: var(--sub-gold); }
+}
+
+.page-hero--event {
+    background-image: linear-gradient(rgba(250, 248, 245, 0.35), rgba(250, 248, 245, 0.5)), url(../image/moon.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 body .footer-jp {
-    border-top: 1px solid rgba(201, 162, 77, 0.25);
+    border-top: none;
+    position: relative;
     letter-spacing: 0.25em;
+}
+body .footer-jp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 0;
+    border-top: 1px solid rgba(201, 162, 77, 0.35);
+    box-shadow: 0 3px 0 rgba(201, 162, 77, 0.2);
 }
 
 body .btn-jp {
@@ -132,6 +253,75 @@ body .img-wrap-jp img {
 .nav-bg { background-color: rgba(250,248,245,0.95); }
 
 #lang-select option { background: var(--bg-warm); color: var(--sub-dark); }
+
+/* ——— Mobile hamburger & overlay ——— */
+@media (min-width: 768px) {
+    #nav-toggle { display: none !important; }
+    .nav-mobile-overlay { display: none !important; }
+}
+#nav-toggle {
+    display: none;
+}
+@media (max-width: 767px) {
+    #lang-select { display: none !important; }
+    #nav-toggle {
+        display: flex !important;
+        width: 2.5rem;
+        height: 2.5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        color: var(--sub-dark);
+    }
+    #nav-toggle .nav-ham-line {
+        display: block;
+        width: 1.5rem;
+        height: 2px;
+        min-height: 2px;
+        background-color: var(--sub-dark);
+        border-radius: 1px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center center;
+    }
+}
+.nav-mobile-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+body.nav-mobile-open .nav-ham-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+body.nav-mobile-open .nav-ham-line:nth-child(2) {
+    opacity: 0;
+}
+body.nav-mobile-open .nav-ham-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+body.nav-mobile-open #nav-toggle {
+    background-color: var(--bg-warm);
+    border: 2px solid var(--sub-gold);
+    border-radius: 0.5rem;
+}
+body.nav-mobile-open #nav-toggle .nav-ham-line {
+    background-color: var(--sub-dark);
+}
+body.nav-mobile-open {
+    overflow: hidden;
+}
+.nav-mobile-overlay .nav-link {
+    color: inherit;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+}
+.nav-mobile-overlay .nav-link:hover {
+    color: var(--sub-gold);
+}
 
 .scroll-reveal {
     opacity: 0;
@@ -197,6 +387,269 @@ body .img-wrap-jp img {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.3), transparent);
     margin: 2rem 0;
+}
+
+/* ——— Event page: list slide right, detail slide up ——— */
+.page-event .event-list-view {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+.page-event.event-detail-open .event-list-view {
+    transform: translateX(-100%);
+}
+
+.page-event .event-row {
+    cursor: pointer;
+    outline: none;
+}
+.page-event .event-row:hover .event-thumb-clickable { opacity: 0.9; }
+.page-event .event-thumb-clickable {
+    transition: opacity 0.2s ease;
+}
+
+.event-detail-view {
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    background: var(--bg-warm);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    will-change: transform;
+}
+.event-detail-view.is-open {
+    transform: translateY(0);
+}
+
+.event-detail-view .event-detail-close {
+    position: absolute;
+    top: 14rem;
+    right: 1.5rem;
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--sub-gold);
+    background: var(--bg-warm);
+    color: var(--sub-dark);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.event-detail-view .event-detail-close:hover {
+    background: var(--sub-gold);
+    color: var(--bg-warm);
+}
+
+.event-detail-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 4rem;
+}
+.event-detail-view .event-detail-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #eee;
+}
+.event-detail-view .event-detail-content[hidden] {
+    display: none !important;
+}
+
+/* ——— Onsen page: list slide right, benefit detail slide up ——— */
+.page-onsen .onsen-list-view {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+.page-onsen.onsen-detail-open .onsen-list-view {
+    transform: translateX(-100%);
+}
+
+.page-onsen .onsen-benefit-row {
+    outline: none;
+}
+.page-onsen .onsen-benefit-row:hover .onsen-benefit-thumb { opacity: 0.9; }
+.page-onsen .onsen-benefit-thumb {
+    transition: opacity 0.2s ease;
+}
+
+.onsen-detail-view {
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    background: var(--bg-warm);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    will-change: transform;
+}
+.onsen-detail-view.is-open {
+    transform: translateY(0);
+}
+
+.onsen-detail-view .onsen-detail-close {
+    position: absolute;
+    top: 12rem;
+    right: 1.5rem;
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--sub-gold);
+    background: var(--bg-warm);
+    color: var(--sub-dark);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.onsen-detail-view .onsen-detail-close:hover {
+    background: var(--sub-gold);
+    color: var(--bg-warm);
+}
+
+.onsen-detail-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 4rem;
+}
+.onsen-detail-view .onsen-detail-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #eee;
+}
+.onsen-detail-view .onsen-detail-content[hidden] {
+    display: none !important;
+}
+
+/* ——— Onsen page: synergy data viz (Japanese 掛け軸 style) ——— */
+/* 青海波 seigaiha (traditional wave) pattern */
+.onsen-viz {
+    padding: 2.5rem 2rem;
+    position: relative;
+    background-color: rgba(250, 248, 245, 0.6);
+    border: 1px solid rgba(201, 162, 77, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(201, 162, 77, 0.12);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cpath d='M0 24 Q12 0 24 24 Q36 0 48 24' fill='none' stroke='%23C9A24D' stroke-width='0.35' opacity='0.12'/%3E%3Cpath d='M0 24 Q12 0 24 24' fill='none' stroke='%23C9A24D' stroke-width='0.25' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 48px 24px;
+}
+.onsen-viz .section-title-jp {
+    font-family: 'Noto Serif JP', serif;
+}
+.onsen-viz .title-line {
+    background: linear-gradient(90deg, transparent, var(--sub-gold), transparent);
+    height: 1px;
+}
+.onsen-viz-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.onsen-viz-item {
+    margin: 0;
+}
+.onsen-viz-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.35rem;
+    gap: 0.75rem;
+}
+.onsen-viz-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Noto Serif JP', serif;
+    color: var(--sub-dark);
+    letter-spacing: 0.08em;
+}
+.onsen-viz-value {
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Noto Serif JP', serif;
+    color: var(--sub-gold);
+    letter-spacing: 0.15em;
+    flex-shrink: 0;
+}
+/* 墨・和風バー: sumi-style bars, rectangular (no pill shape) */
+.onsen-viz-bar {
+    height: 12px;
+    background: rgba(43, 43, 43, 0.08);
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(201, 162, 77, 0.2);
+}
+.onsen-viz-bar-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, rgba(201, 162, 77, 0.5), var(--sub-gold));
+    border-radius: 0;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scroll-reveal.revealed .onsen-viz-bar-fill {
+    width: var(--bar-w, 0);
+}
+
+/* ——— Bar page: program structure (systematic / academic) ——— */
+.bar-program-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: bar-program;
+}
+.bar-program-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    counter-increment: bar-program;
+}
+.bar-program-num {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--sub-gold);
+    background: rgba(201, 162, 77, 0.12);
+    border: 1px solid rgba(201, 162, 77, 0.35);
+}
+.bar-program-item .content-block-jp {
+    flex: 1;
+    padding-left: 0;
+    border-left: none;
+    border-image: none;
+}
+.bar-program-item .content-block-jp h3 {
+    letter-spacing: 0.1em;
+}
+.page-bar .bar-program .section-title-jp {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.bar-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bar-price {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sub-gold);
+    letter-spacing: 0.05em;
 }
 
 /* ——— Location bar (between Bar & Event) ——— */
