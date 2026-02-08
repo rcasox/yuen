@@ -1,0 +1,319 @@
+:root {
+    --main: #C73A3A;
+    --sub-dark: #2B2B2B;
+    --sub-cream: #F6F2E8;
+    --sub-gold: #C9A24D;
+    --bg-warm: #FAF8F5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ——— Japanese theme (global) ——— */
+body {
+    font-family: 'Noto Serif JP', 'Noto Serif KR', serif;
+    background-color: var(--bg-warm);
+    color: var(--sub-dark);
+    letter-spacing: 0.03em;
+}
+
+body .nav-jp {
+    border-bottom: 1px solid rgba(201, 162, 77, 0.25);
+    letter-spacing: 0.15em;
+}
+body .nav-jp ul li {
+    letter-spacing: 0.2em;
+    font-weight: 500;
+}
+body .nav-jp .nav-link {
+    color: inherit;
+    text-decoration: none;
+}
+body .nav-jp .nav-link:hover,
+body .nav-jp .nav-link.nav-active {
+    color: var(--sub-gold);
+}
+body .nav-jp .nav-link.nav-active {
+    font-weight: 600;
+}
+
+body .hero-jp .hero-text-light,
+body .hero-jp h1 {
+    color: #000;
+}
+body .hero-jp .hero-tagline {
+    letter-spacing: 0.4em;
+    color: #C9A24D;
+}
+body .hero-jp .hero-tagline::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: #C9A24D;
+    margin: 0.75rem auto 0;
+    opacity: 0.85;
+}
+body .hero-jp h1 {
+    letter-spacing: 0.08em;
+    font-weight: 300;
+}
+body .hero-jp .hero-desc {
+    letter-spacing: 0.06em;
+    color: #2B2B2B;
+}
+
+body .section-title-jp {
+    letter-spacing: 0.2em;
+    font-weight: 600;
+}
+body .section-title-jp + .title-line {
+    display: block;
+    width: 4rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sub-gold), transparent);
+    margin: 0.75rem auto 2.5rem;
+}
+
+body .content-block-jp {
+    border-left: 2px solid rgba(201, 162, 77, 0.4);
+    padding-left: 1.5rem;
+}
+body .content-block-jp h3 {
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+.page-hero {
+    padding: 12rem 1.5rem 4rem;
+    text-align: center;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.page-hero .section-title-jp {
+    margin-bottom: 0;
+}
+.page-hero .title-line {
+    margin-bottom: 0.5rem;
+}
+
+body .footer-jp {
+    border-top: 1px solid rgba(201, 162, 77, 0.25);
+    letter-spacing: 0.25em;
+}
+
+body .btn-jp {
+    letter-spacing: 0.25em;
+    font-weight: 500;
+}
+body .img-wrap-jp {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+body .img-wrap-jp img {
+    transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.hero-gradient {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(250,248,245,0.98)), url('../image/mainn.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.gold-text { color: var(--main); }
+.border-gold { border-color: var(--main); }
+.sub-gold { color: var(--sub-gold); }
+.sub-cream { color: var(--sub-cream); }
+.bg-sub-dark { background-color: var(--sub-dark); }
+.bg-sub-cream { background-color: var(--sub-cream); }
+.bg-warm { background-color: var(--bg-warm); }
+.nav-bg { background-color: rgba(250,248,245,0.95); }
+
+#lang-select option { background: var(--bg-warm); color: var(--sub-dark); }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Event section — Japanese style */
+.event-section--jp {
+    font-family: 'Noto Serif JP', 'Noto Serif KR', serif;
+    border-top: 1px solid rgba(201, 162, 77, 0.25);
+}
+.event-section--jp .event-title-line {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--sub-gold), transparent);
+    margin: 0.75rem auto 0;
+}
+.event-section--jp .event-card {
+    border-left: 3px solid var(--sub-gold);
+    padding-left: 1.25rem;
+    position: relative;
+}
+.event-section--jp .event-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--sub-gold);
+    background: var(--bg-warm);
+    color: var(--sub-gold);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.event-section--jp .event-number--overlay {
+    margin: 0.5rem;
+    background: rgba(250, 248, 245, 0.9);
+    border-radius: 0;
+}
+.event-section--jp .event-thumb-wrap {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.event-section--jp .event-thumb-wrap .event-thumb {
+    border-radius: 0.5rem;
+}
+.event-section--jp .event-card h3 {
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+.event-section--jp .event-intro {
+    letter-spacing: 0.08em;
+}
+.event-section--jp .event-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.3), transparent);
+    margin: 2rem 0;
+}
+
+/* ——— Location bar (between Bar & Event) ——— */
+.location-bar {
+    margin-top: 3rem;
+    padding: 1.5rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(201, 162, 77, 0.35);
+    border-bottom: 1px solid rgba(201, 162, 77, 0.35);
+    background: rgba(250, 248, 245, 0.6);
+}
+.location-bar__title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--sub-gold);
+    margin-bottom: 0.5rem;
+}
+.location-bar__address {
+    font-size: 0.9rem;
+    color: var(--sub-dark);
+    opacity: 0.85;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* ——— Concept page (YUEN brand story) ——— */
+.concept-page {
+    min-height: 100vh;
+    position: relative;
+}
+.concept-gradient {
+    /* 좌측 #C73A3A(레드) → 가운데 화이트 넓게 → 우측 #C9A24D(골드) */
+    background: linear-gradient(90deg,
+        rgba(199, 58, 58, 0.85) 0%,
+        rgba(199, 58, 58, 0.4) 18%,
+        rgba(250, 248, 245, 0.5) 35%,
+        rgba(250, 248, 245, 0.55) 50%,
+        rgba(250, 248, 245, 0.5) 65%,
+        rgba(201, 162, 77, 0.4) 82%,
+        rgba(201, 162, 77, 0.75) 100%);
+    background-attachment: fixed;
+}
+.concept-slogan-ja {
+    font-family: 'Zen Antique', 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 400;
+    color: #2B2B2B;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+}
+.concept-slogan-ko {
+    font-size: 0.95rem;
+    color: #2B2B2B;
+    opacity: 0.85;
+    letter-spacing: 0.06em;
+    margin-top: 1rem;
+}
+.concept-fade {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.concept-fade.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.concept-mediator {
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    background: rgba(250, 248, 245, 0.75);
+    border: 1px solid rgba(201, 162, 77, 0.3);
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: #2B2B2B;
+    letter-spacing: 0.04em;
+}
+
+/* ——— Footer social ——— */
+.footer-jp .footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.footer-jp .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #2B2B2B;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+.footer-jp .footer-social a:hover {
+    opacity: 1;
+}
+.footer-jp .footer-social a[href*="instagram"]:hover { color: #E4405F; }
+.footer-jp .footer-social a[href*="twitter"]:hover { color: #000; }
+.footer-jp .footer-social a[href*="tiktok"]:hover { color: #000; }
+.footer-jp .footer-social svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* ——— Coaster page ——— */
+.coaster-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+}
+.coaster-red { color: #C73A3A; font-weight: 500; }
+.coaster-blue { color: #2563EB; font-weight: 500; }
+.coaster-yellow { color: #C9A24D; font-weight: 500; }
+.coaster-black { color: #1a1a1a; font-weight: 600; }
+
