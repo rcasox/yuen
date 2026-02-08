@@ -35,10 +35,17 @@ git push -u origin main
 
 ## 3. GitHub Pages 켜기
 
-1. GitHub 저장소 페이지에서 **Settings** → 왼쪽 메뉴 **Pages**
-2. **Source**: `Deploy from a branch`
-3. **Branch**: `main` (또는 사용 중인 브랜치), 폴더 **/ (root)** 선택
-4. **Save** 클릭
+**방법 A – GitHub Actions로 배포 (권장, `.github/workflows/deploy-pages.yml` 사용)**
+
+1. GitHub 저장소 → **Settings** → 왼쪽 **Pages**
+2. **Build and deployment**에서 **Source**를 **GitHub Actions**로 선택
+3. `main` 브랜치에 푸시할 때마다 자동으로 현재 코드가 배포됨
+
+**방법 B – 브랜치에서 직접 배포**
+
+1. **Source**: `Deploy from a branch`
+2. **Branch**: `main`, 폴더 **/ (root)** 선택
+3. **Save** 클릭
 
 몇 분 후 사이트 주소:
 
