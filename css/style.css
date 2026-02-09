@@ -106,29 +106,6 @@ body .hero-jp .hero-desc {
     .hero-jp::after { display: none; }
 }
 
-/* 모바일: 한/일/영 가독성 — 어색한 줄바꿈 방지, 줄간격 보정 */
-@media (max-width: 767px) {
-    .hero-jp h1 {
-        word-break: keep-all;
-        overflow-wrap: break-word;
-        line-height: 1.35;
-        letter-spacing: 0.06em;
-    }
-    .hero-jp .hero-desc,
-    .content-block-jp p,
-    .event-intro,
-    .event-card p {
-        word-break: keep-all;
-        overflow-wrap: break-word;
-        line-height: 1.85;
-    }
-    body .content-block-jp p,
-    [data-i18n="bar.desc"] {
-        font-size: 0.9375rem;
-        letter-spacing: 0.02em;
-    }
-}
-
 body .section-title-jp {
     letter-spacing: 0.25em;
     font-weight: 600;
