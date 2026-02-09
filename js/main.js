@@ -2,7 +2,7 @@
     const STORAGE_KEY = 'yuragi-lang';
     const locales = {
         ko: {
-            nav: { concept: 'CONCEPT', onsen: 'ONSEN', bar: 'BAR', event: 'EVENT', coaster: '가이드', location: '위치' },
+            nav: { concept: '컨셉', onsen: '온천', bar: '바', event: '이벤트', coaster: '특징', location: '위치' },
             concept: {
                 sloganJa: '온천이 풀어주고, 술이 이어준다',
                 sloganKo: '온천이 풀어주고, 술이 이어준다',
@@ -13,24 +13,30 @@
             },
             hero: { tagline: 'PREMIUM RELAXATION', title: '달빛 아래, <br> 온천과 위스키의 변주', desc: '따뜻한 온천수에서 몸을 녹이고, 정갈한 바에서 장인의 칵테일을 즐겨보세요. <br> 당신만을 위한 완벽한 밤의 휴식이 시작됩니다.', cta: '예약하기' },
             onsen: { title: '01. 온천', footbathPageTitle: '족욕 온천', footbathIntro: '유엔은 홋카이도 함관(函館) 유노카와의 천연 온천수를 사용한 족욕을 안내합니다. 야외에서 밤바람과 함께 발을 담그며 휴식을 취하실 수 있습니다. 아래에서 족욕의 효능을 살펴보세요.', vizTitle: '온천과 한 잔의 시너지', vizSubtitle: '족욕과 바 한 잔이 주는 효과', vizMatch: '술과 온천 궁합', vizRelax: '이완 효과', vizEmotional: '정서적 안정', vizCirculation: '혈행·피로 개선', vizSleep: '숙면', title1: '따뜻한 온천', desc1: '유노카와의 천연 온천. 약 40℃의 온수로 발끝에서 천천히 풀어집니다.', title2: '넓은 공간', desc2: '야외 족욕 공간. 밤바람과 함께 여유로운 시간을 보내세요.', title3: '여행 피로를 풀다', desc3: '걷다 지친 발을 따뜻한 온천에 담그세요. 하코다테 밤을 천천히.', desc: '일본 전통 목조 양식의 미학을 담았습니다. 히노끼 향이 은은하게 퍼지는 노천탕에서 일상의 소음을 잊고 계절의 바람을 느껴보세요.' },
-            bar: { title: '바', programIntro: '유엔 바는 지역 기반 음료 큐레이션 체계에 따라 운영됩니다.', frameworkTitle: '바 프로그램 구성', section1Title: '선정 기준', section1Desc: '현지 양조장·증류소와의 직접 연계, 품질 검증(시음·성분), 지역 한정(地酒・限定) 조건을 충족하는 품목만 선별합니다.', section2Title: '카테고리 체계', section2Desc: '지주(地酒), 재패니즈 위스키, 오리지널 칵테일로 구분하며, 각 카테고리별로 출처·특성에 따른 일관된 분류를 적용합니다.', section3Title: '온천과의 페어링', section3Desc: '족욕 후 이완·혈행 개선 상태에서의 소량 음주를 전제로, 강도·온도·맛의 균형을 맞춘 메뉴 구성을 원칙으로 합니다.', publicTitle: '함께 여는 한 잔', publicDesc: '유엔 바는 한 사람의 밤만이 아니라, 동네와 여행자가 만나는 자리입니다. 위의 선정 기준과 메뉴 구성은 ‘누구나 같은 기준으로 한 잔을 받을 수 있게’ 하려는 생각에서 비롯했습니다. 지역 양조장과의 연결, 온천과의 페어링은 그 한 잔이 단순한 상품이 아니라, 이곳에서만 나누는 공동의 시간이 되도록 하기 위함입니다.', desc: '엄선된 재패니즈 위스키와 지역 사케를 베이스로 한 오리지널 칵테일. 조용히 흐르는 재즈 선율과 함께 어른의 시간을 즐기실 수 있습니다.', hakodateTitle: '하코다테 술', hakodateDesc: '유엔 바에서는 홋카이도·함관 지역의 지주(地酒)와 재패니즈 위스키를 중심으로 한 메뉴를 갖추고 있습니다. 현지 양조장의 사케, 지역 한정 위스키를 곁들인 오리지널 칵테일로 하코다테의 밤을 즐겨 보세요.', recommendTitle: '추천', item1Name: '함관 지주 한 잔', item1Desc: '홋카이도·함관 지역 양조장 일본주', item1Price: '1,200円（税込）', item2Name: '재패니즈 위스키', item2Desc: '지역 한정 · 싱글 몰트', item2Price: '1,800円（税込）', item3Name: '오리지널 칵테일', item3Desc: '지주·위스키 베이스', item3Price: '1,500円（税込）', glassTitle: '한 잔을 담는 그릇', glassDesc: '유엔 바에서는 그 한 잔을 담기 위해 제작한 오리지널 글라스를 사용합니다. 온천과 술이 맞닿는 경계를 담는 그릇으로, 손에 잡히는 감과 입가에 닿는 선을 하나하나 맞춰 만든 잔입니다. 지주와 위스키, 칵테일을 이 잔에 담아 드립니다.' },
+            bar: { title: '03. 바', programIntro: '유엔 바는 지역 기반 음료 큐레이션 체계에 따라 운영됩니다.', frameworkTitle: '바 프로그램 구성', section1Title: '선정 기준', section1Desc: '현지 양조장·증류소와의 직접 연계, 품질 검증(시음·성분), 지역 한정(地酒・限定) 조건을 충족하는 품목만 선별합니다.', section2Title: '카테고리 체계', section2Desc: '지주(地酒), 재패니즈 위스키, 오리지널 칵테일로 구분하며, 각 카테고리별로 출처·특성에 따른 일관된 분류를 적용합니다.', section3Title: '온천과의 페어링', section3Desc: '족욕 후 이완·혈행 개선 상태에서의 소량 음주를 전제로, 강도·온도·맛의 균형을 맞춘 메뉴 구성을 원칙으로 합니다.', publicTitle: '함께 여는 한 잔', publicDesc: '유엔 바는 한 사람의 밤만이 아니라, 동네와 여행자가 만나는 자리입니다. 위의 선정 기준과 메뉴 구성은 ‘누구나 같은 기준으로 한 잔을 받을 수 있게’ 하려는 생각에서 비롯했습니다. 지역 양조장과의 연결, 온천과의 페어링은 그 한 잔이 단순한 상품이 아니라, 이곳에서만 나누는 공동의 시간이 되도록 하기 위함입니다.', desc: '엄선된 재패니즈 위스키와 지역 사케를 베이스로 한 오리지널 칵테일.<br>조용히 흐르는 재즈 선율과 함께 어른의 시간을 즐기실 수 있습니다.', hakodateTitle: '하코다테 술', hakodateDesc: '유엔 바에서는 홋카이도·함관 지역의 지주(地酒)와 재패니즈 위스키를 중심으로 한 메뉴를 갖추고 있습니다. 현지 양조장의 사케, 지역 한정 위스키를 곁들인 오리지널 칵테일로 하코다테의 밤을 즐겨 보세요.', recommendTitle: '추천', item1Name: '함관 지주 한 잔', item1Desc: '홋카이도·함관 지역 양조장 일본주', item1Price: '1,200엔 (세금 포함)', item2Name: '재패니즈 위스키', item2Desc: '지역 한정 · 싱글 몰트', item2Price: '1,800엔 (세금 포함)', item3Name: '오리지널 칵테일', item3Desc: '지주·위스키 베이스', item3Price: '1,500엔 (세금 포함)', glassTitle: '한 잔을 담는 그릇', glassDesc: '유엔 바에서는 그 한 잔을 담기 위해 제작한 오리지널 글라스를 사용합니다. 온천과 술이 맞닿는 경계를 담는 그릇으로, 손에 잡히는 감과 입가에 닿는 선을 하나하나 맞춰 만든 잔입니다. 지주와 위스키, 칵테일을 이 잔에 담아 드립니다.' },
             footbath: {
                 title: '02. 족욕에 효능',
                 benefit1Title: '혈행 개선',
                 benefit1Desc: '따뜻한 물에 발을 담그면 말초 혈관이 확장되어 혈액 순환이 좋아집니다.',
+                benefit1TitleDetail: '혈행 촉진과 냉증 개선',
+                benefit1DescDetail: '발을 따뜻하게 하면 말초에서 전신으로 혈류가 잘 돌게 됩니다.<br>냉한 발끝·발목 완화<br>서거나 걸어서 피곤한 다리 회복<br>온몸이 따뜻해지는 느낌<br>유노카와를 걸은 뒤 찾는 족욕은, 이동으로 쌓인 피로를 조용히 리셋하는 시간이 됩니다.',
                 benefit2Title: '피로 회복',
                 benefit2Desc: '족욕으로 근육이 이완되고 쌓인 피로가 풀려 몸이 가벼워집니다.',
+                benefit2TitleDetail: '자율신경을 안정시키고, 깊은 휴식으로',
+                benefit2DescDetail: '족욕에는 교감신경의 흥분을 누르고 부교감신경을 우위로 하는 작용이 있다고 합니다.<br>호흡이 자연스럽게 깊어진다<br>몸의 힘이 빠진다<br>마음이 가라앉는다<br>이는 ‘무언가를 하기’ 위함이 아니라, 아무것도 하지 않아도 되는 상태로 돌아가기 위한 시간입니다.',
                 benefit3Title: '숙면·이완',
-                benefit3Desc: '저녁 족욕은 심신을 진정시켜 숙면에 도움이 됩니다.'
+                benefit3Desc: '저녁 족욕은 심신을 진정시켜 숙면에 도움이 됩니다.',
+                benefit3TitleDetail: '수면의 질을 높이기 위해',
+                benefit3DescDetail: '취침 전 발을 따뜻하게 하면 몸의 리듬이 잡히고 자연스러운 잠으로 넘어가기 쉬워집니다.<br>잠들기 좋아진다<br>밤중에 눈이 뜨기 어려워진다<br>깨어날 때가 부드러워진다<br>유엔에서는 10~20분 정도의 족욕을 권합니다.'
             },
             guide: {
                 flowTitle: '이용의 흐름',
                 flowIntro: '湯가 풀고, 酒가 이어준다. 유엔에서는 족욕을 하면서 한 잔을 드시는 시간입니다.',
-                flow1: '도착하시면 안내에 따라 족욕·바 공간을 이용해 주세요.',
-                flow2: '족욕에 발을 담그신 채로, 바 메뉴를 주문해 한 잔을 드실 수 있습니다.',
-                flow3: '코스터로 말하지 않고도 언어와 침묵을 전할 수 있습니다.',
+                flow1: '족욕에 들어가기<br>도착하신 후, 발을 온천물에 담그고 편히 쉬세요. 옷을 그대로 입은 채 10~20분 정도를 기준으로 이용하실 수 있습니다.<br>걸어서 지친 몸과 하루의 긴장을 천천히 풀어내는 시간입니다.',
+                flow2: '한 잔 고르기<br>족욕에 발을 담그신 채로, 바 메뉴에서 음료를 골라 주세요.<br>유엔에서는 지역 주류점과 협력해, 양보다 배경과 이야기를 중시한 한 잔을 준비하고 있습니다.',
+                flow3: '나만의 거리감으로 보내기<br>혼자 조용히 보내시는 분도, 누군가와 같은 공간에 계시는 분도, 보내는 방식에 정답은 없습니다.<br>말하지 않아도 되고, 말해도 됩니다. 그 선택은 이용하시는 분에게 맡깁니다.',
                 stillnessTitle: '한적함을 위해',
-                stillnessDesc: '우리는 당신의 고요를 지키는 매개자입니다. 말하지 않고 지켜볼 뿐이니, 편히 쉬셔도 됩니다. 코스터로 언어와 침묵을 전하고, 검은 면을 보이는 분의 시간은 존중해 주세요.'
+                stillnessDesc: '유엔은 누군가에게 말을 걸어주는 것을 전제로 한 장소가 아닙니다. 조용히 보내고 싶은 분은 억지로 대화할 필요가 없습니다. 그 자리에 계시기만 하면 됩니다.'
             },
             coaster: {
                 sectionTitle: '코스터',
@@ -38,7 +44,9 @@
                 red: '빨간색 — 일본어를 할 수 있습니다.',
                 blue: '파란색 — 한국어를 할 수 있습니다.',
                 yellow: '노란색 — 영어를 할 수 있습니다.',
-                black: '뒤집어 검은 면을 보이면 — 말 걸지 말아 주세요. 혼자만의 시간을 갖고 싶을 때.'
+                black: '뒤집어 검은 면을 보이면 — 말 걸지 말아 주세요. 혼자만의 시간을 갖고 싶을 때.',
+                publicTitle: '유엔이 지향하는 공공 공간',
+                publicDesc: '족욕은 연령과 성별에 관계없이 짧은 시간에 누구나 이용할 수 있는 공공성이 높은 목욕 문화입니다. 유엔은 그 특성을 살려, 지나치게 관리하지도 않고 방치하지도 않는 적당한 거리의 공공 공간을 지향합니다.'
             },
             event: {
                 title: '04. 이벤트',
@@ -62,6 +70,7 @@
             },
             location: {
                 title: '위치',
+                previewTitle: '공간 미리보기',
                 criteriaTitle: '장소 선정 기준',
                 criteria1: '유엔은 「온천의 신」과 「술의 신」이 마주하는 경계에 서 있습니다. 그 경계를 느끼실 수 있는 장소를 찾았습니다.',
                 criteria2: '하코다테 湯の川(유노카와)는 온천이 흐르는 거리입니다. 그 한복판이 아니라, 조용한 골목 한쪽을 택했습니다. 낮의 온천 거리와 밤의 한 잔이 맞닿는, 말하지 않고 지켜보는 공간이 되려 했습니다.',
@@ -75,7 +84,7 @@
             yang: { title: '양조장과 연계한 하코다테 술', intro: '유엔 바의 하코다테 술은 현지 양조장과 직접 연계하여 가져옵니다. 홋카이도·함관 일대의 사케 양조장, 증류소와 협력하여 그때그때 맛과 품질을 확인한 뒤 선별한 지주(地酒)와 위스키만을 올립니다.', para1: '양조장 방문과 시음을 통해 신뢰할 수 있는 파트너만 골라, 바에서 제공하는 한 잔까지 이어지는 흐름을 지키고 있습니다. 그래서 고객님께는 이 지역에서만 맛볼 수 있는 한 잔을 그대로 전해 드릴 수 있습니다.', para2: '하코다테의 밤을, 현지 양조장과 이어지는 한 잔으로 즐겨 보세요.' }
         },
         ja: {
-            nav: { concept: 'コンセプト', onsen: '温泉', bar: 'バー', event: 'イベント', coaster: 'ガイド', location: 'ロケーション' },
+            nav: { concept: 'コンセプト', onsen: '温泉', bar: 'バー', event: 'イベント', coaster: 'こだわり', location: 'ロケーション' },
             concept: {
                 sloganJa: '湯がほどき、酒がつなぐ',
                 sloganKo: '湯がほどき、酒がつなぐ（温泉が解き、酒が繋ぐ）',
@@ -86,24 +95,30 @@
             },
             hero: { tagline: 'PREMIUM RELAXATION', title: '月明かりの下で、<br>温泉とウイスキーの変奏', desc: '温かな温泉で体をほぐし、上品なバーで職人のカクテルを。 <br>あなただけの完璧な夜のくつろぎが始まります。', cta: 'ご予約' },
             onsen: { title: '01. 湯 (Onsen)', footbathPageTitle: '足湯温泉', footbathIntro: '湯縁では北海道・函館の湯の川の天然温泉を使った足湯をご案内しています。屋外で夜風とともに足を浸し、くつろぎの時間をお過ごしください。足湯の効能は下記をご覧ください。', vizTitle: '湯と一杯のシナジー', vizSubtitle: '足湯とバーで得られる効果', vizMatch: '酒と温泉の相性', vizRelax: 'リラックス効果', vizEmotional: '情緒の安定', vizCirculation: '血行・疲労改善', vizSleep: '安眠', title1: '温かみのある湯', desc1: '湯の川の天然温泉。約40℃の湯で足元からゆっくりとほぐれていきます。', title2: '開放感のある空間', desc2: '屋外の足湯スペース。夜風と共に、開放的なひとときをお過ごしください。', title3: '旅の疲れを癒す', desc3: '歩き疲れた足を、温かい湯に浸けて。函館の夜を、ゆったりと。', desc: '日本の伝統木造様式の美学を込めました。ヒノキの香りがほのかに広がる露天風呂で、日常の喧騒を忘れ、四季の風を感じてください。' },
-            bar: { title: '酒 (Bar)', programIntro: '湯縁バーは地域ベースの飲料キュレーション体系に基づいて運営しています。', frameworkTitle: 'バープログラム構成', section1Title: '選定基準', section1Desc: '地元の蔵元・蒸留所との直接連携、品質検証（試飲・成分）、地域限定（地酒・限定）条件を満たす品目のみを選定します。', section2Title: 'カテゴリー体系', section2Desc: '地酒、ジャパニーズウイスキー、オリジナルカクテルに区分し、各カテゴリーごとに産地・特性に応じた一貫した分類を適用します。', section3Title: '温泉とのペアリング', section3Desc: '足湯後の弛緩・血行改善状態における少量飲酒を前提に、強度・温度・味のバランスを考慮したメニュー構成を原則とします。', publicTitle: 'ともに開く一杯', publicDesc: '湯縁バーはひとりの夜だけの場ではなく、街と旅人が出会う場所です。上の選定基準やメニュー構成は、「誰もが同じ基準で一杯を受け取れるように」という考えに基づいています。地元蔵元とのつながり、温泉とのペアリングは、その一杯を単なる商品ではなく、ここでしか交わさない共有の時間にするためのものです。', desc: '厳選されたジャパニーズウイスキーと地酒をベースにしたオリジナルカクテル。静かに流れるジャズとともに、大人の時間をお楽しみいただけます。', hakodateTitle: '函館の酒', hakodateDesc: '湯縁のバーでは北海道・函館の地酒とジャパニーズウイスキーを中心にしたラインナップをご用意しています。地元蔵元の日本酒や地域限定ウイスキーを使ったオリジナルカクテルで、函館の夜をお楽しみください。', recommendTitle: 'おすすめ', item1Name: '函館地酒 一杯', item1Desc: '北海道・函館の地元蔵元の日本酒', item1Price: '1,200円（税込）', item2Name: 'ジャパニーズウイスキー', item2Desc: '地域限定・シングルモルト', item2Price: '1,800円（税込）', item3Name: 'オリジナルカクテル', item3Desc: '地酒・ウイスキーベース', item3Price: '1,500円（税込）', glassTitle: '一杯を注ぐ器', glassDesc: '湯縁バーでは、その一杯のために作ったオリジナルグラスをご用意しています。湯と酒が接する境界を包む器として、手に馴染む形と口当たりの線をひとつずつ調整して仕上げました。地酒もウイスキーもカクテルも、この器に注いでお出しします。' },
+            bar: { title: '03. 酒 (Bar)', programIntro: '湯縁バーは地域ベースの飲料キュレーション体系に基づいて運営しています。', frameworkTitle: 'バープログラム構成', section1Title: '選定基準', section1Desc: '地元の蔵元・蒸留所との直接連携、品質検証（試飲・成分）、地域限定（地酒・限定）条件を満たす品目のみを選定します。', section2Title: 'カテゴリー体系', section2Desc: '地酒、ジャパニーズウイスキー、オリジナルカクテルに区分し、各カテゴリーごとに産地・特性に応じた一貫した分類を適用します。', section3Title: '温泉とのペアリング', section3Desc: '足湯後の弛緩・血行改善状態における少量飲酒を前提に、強度・温度・味のバランスを考慮したメニュー構成を原則とします。', publicTitle: 'ともに開く一杯', publicDesc: '湯縁バーはひとりの夜だけの場ではなく、街と旅人が出会う場所です。上の選定基準やメニュー構成は、「誰もが同じ基準で一杯を受け取れるように」という考えに基づいています。地元蔵元とのつながり、温泉とのペアリングは、その一杯を単なる商品ではなく、ここでしか交わさない共有の時間にするためのものです。', desc: '厳選されたジャパニーズウイスキーと地酒をベースにしたオリジナルカクテル。<br>静かに流れるジャズとともに、大人の時間をお楽しみいただけます。', hakodateTitle: '函館の酒', hakodateDesc: '湯縁のバーでは北海道・函館の地酒とジャパニーズウイスキーを中心にしたラインナップをご用意しています。地元蔵元の日本酒や地域限定ウイスキーを使ったオリジナルカクテルで、函館の夜をお楽しみください。', recommendTitle: 'おすすめ', item1Name: '函館地酒 一杯', item1Desc: '北海道・函館の地元蔵元の日本酒', item1Price: '1,200円（税込）', item2Name: 'ジャパニーズウイスキー', item2Desc: '地域限定・シングルモルト', item2Price: '1,800円（税込）', item3Name: 'オリジナルカクテル', item3Desc: '地酒・ウイスキーベース', item3Price: '1,500円（税込）', glassTitle: '一杯を注ぐ器', glassDesc: '湯縁バーでは、その一杯のために作ったオリジナルグラスをご用意しています。湯と酒が接する境界を包む器として、手に馴染む形と口当たりの線をひとつずつ調整して仕上げました。地酒もウイスキーもカクテルも、この器に注いでお出しします。' },
             footbath: {
                 title: '02. 足湯の効能',
-                benefit1Title: '血行促進',
+                benefit1Title: '血行促進と冷えの改善',
                 benefit1Desc: '温かい湯に足を浸すと末梢血管が広がり、血流がよくなります。',
-                benefit2Title: '疲労回復',
+                benefit1TitleDetail: '血行促進と冷えの改善',
+                benefit1DescDetail: '足元を温めることで、 末端から全身へと血流が巡りやすくなります。<br>冷えやすい足先・足首の緩和<br>立ち仕事や歩き疲れた脚の回復<br>体全体がじんわり温まる感覚<br>湯の川を歩いたあとに立ち寄る足湯は、 移動による疲れを静かにリセットする時間になります。',
+                benefit2Title: '自律神経を整え、深い休息へ',
                 benefit2Desc: '足湯で筋肉がほぐれ、溜まった疲れが取れて体が軽くなります。',
-                benefit3Title: '安眠・リラックス',
-                benefit3Desc: '夜の足湯は心身を落ち着かせ、質のよい睡眠に役立ちます。'
+                benefit2TitleDetail: '自律神経を整え、深い休息へ',
+                benefit2DescDetail: '足湯には、 交感神経の高ぶりを抑え、 副交感神経を優位にする働きがあるといわれています。<br>呼吸が自然に深くなる<br>身体の力が抜ける<br>気持ちが落ち着く<br>これは、 「何かをする」ためではなく、 何もしなくてもよい状態に戻るための時間です。',
+                benefit3Title: '睡眠の質を高めるために',
+                benefit3Desc: '夜の足湯は心身を落ち着かせ、質のよい睡眠に役立ちます。',
+                benefit3TitleDetail: '睡眠の質を高めるために',
+                benefit3DescDetail: '就寝前に足元を温めることで、 身体のリズムが整いやすくなり、 自然な眠りへと移行しやすくなります。<br>寝つきがよくなる<br>夜中に目が覚めにくくなる<br>目覚めが穏やかになる<br>湯縁では、 10〜20分程度の足湯を目安としています。'
             },
             guide: {
                 flowTitle: '利用の流れ',
                 flowIntro: '湯がほどき、酒がつなぐ。湯縁では足湯をしながら一杯を楽しむ時間です。',
-                flow1: 'ご来店後、ご案内に従って足湯・バーをご利用ください。',
-                flow2: '足湯に足を浸けたまま、バーメニューで一杯をご注文いただけます。',
-                flow3: 'コースターで言葉にせず、言語と沈黙を伝えられます。',
+                flow1: '足湯に入る<br>ご来店後、足元を温泉につけてお過ごしください。 服を着たまま、10〜20分ほどを目安にご利用いただけます。<br>歩き疲れた身体や、 一日の緊張を、ゆっくりとほどく時間です。',
+                flow2: '一杯を選ぶ<br>足湯に入りながら、 バーメニューからお飲み物をお選びください。<br>湯縁では、 地元の酒屋さんと協力し、 量よりも背景や物語を大切にした一杯をご用意しています。',
+                flow3: '自分の距離感で過ごす<br>一人で静かに過ごす方も、 誰かと同じ空間に居合わせる方も、過ごし方に正解はありません。<br>話さなくてもいいし、 話してもいい。 その選択を、利用者自身に委ねています。',
                 stillnessTitle: '静寂のために',
-                stillnessDesc: '私たちはあなたの静寂を見守る媒介者です。語らずただ見守るだけですので、どうぞおくつろぎください。コースターで言語と沈黙を伝え、黒い面を見せている方の時間はお守りください。'
+                stillnessDesc: '湯縁は、 誰かに話しかけられることを前提とした場所ではありません。静かに過ごしたい方は、 無理に会話をする必要はありません。 その場に居るだけで、十分です。'
             },
             coaster: {
                 sectionTitle: 'コースター',
@@ -111,7 +126,9 @@
                 red: '赤 — 日本語ができます。',
                 blue: '青 — 韓国語ができます。',
                 yellow: '黄 — 英語ができます。',
-                black: '裏返して黒い面を見せたら — 話しかけないで。ひとりの時間が欲しいとき。'
+                black: '裏返して黒い面を見せたら — 話しかけないで。ひとりの時間が欲しいとき。',
+                publicTitle: '湯縁が目指す公共空間',
+                publicDesc: '足湯は、<br>年齢や性別を問わず<br>短時間で<br>誰でも利用できる<br>公共性の高い入浴文化です。<br>湯縁はその特性を活かし、 管理しすぎず、放置もしない ちょうどいい距離の公共空間を目指しています。'
             },
             event: {
                 title: '04. イベント',
@@ -136,6 +153,7 @@
             reservation: { intro: '温泉・バーご利用のご予約・お問い合わせは下記までお願いいたします。', hours: '受付時間: 10:00–20:00（年中無休）', tel: 'TEL: 075-XXX-XXXX', note: '温泉・バーとも当日予約可能です。団体のご利用は事前にお問い合わせください。' },
             location: {
                 title: 'ロケーション',
+                previewTitle: '空間の眺望',
                 criteriaTitle: '場所選定の理由',
                 criteria1: '湯縁は「湯の神」と「酒の神」が向き合う境界に立っています。その境界を感じていただける場所を選びました。',
                 criteria2: '函館・湯の川は温泉の流れる街です。その表通りではなく、静かな路地の一角を選びました。昼の温泉街と夜の一杯が接する、語らずただ見守る空間であるために。',
@@ -149,7 +167,7 @@
             yang: { title: '蔵元とつながる函館の酒', intro: '湯縁のバーでご提供する函館の酒は、地元の蔵元と直接提携して仕入れています。北海道・函館の日本酒蔵や蒸留所と連携し、味と品質をその都度確認したうえで厳選した地酒とウイスキーだけを並べています。', para1: '蔵元への訪問や試飲を通じて信頼できるパートナーだけを選び、バーで出す一杯までつながる流れを守っています。だからこそ、お客様には「この地域でしか味わえない一杯」をそのままお届けできます。', para2: '函館の夜を、地元の蔵元とつながる一杯でお楽しみください。' }
         },
         en: {
-            nav: { concept: 'CONCEPT', onsen: 'ONSEN', bar: 'BAR', event: 'EVENT', coaster: 'GUIDE', location: 'LOCATION' },
+            nav: { concept: 'CONCEPT', onsen: 'ONSEN', bar: 'BAR', event: 'EVENT', coaster: 'FEATURE', location: 'LOCATION' },
             concept: {
                 sloganJa: 'The spring loosens; the drink connects.',
                 sloganKo: 'The spring loosens; the drink connects.',
@@ -160,24 +178,30 @@
             },
             hero: { tagline: 'PREMIUM RELAXATION', title: 'Under the moonlight,<br> variations of onsen & whiskey', desc: 'Soak in warm spring water, savor artisan cocktails at an elegant bar. <br>Your perfect night of rest begins here.', cta: 'Reserve' },
             onsen: { title: '01. Onsen', footbathPageTitle: 'Foot bath onsen', footbathIntro: 'At YUEN we offer foot baths using natural hot-spring water from Yunokawa, Hakodate, Hokkaido. Soak your feet outdoors with the night breeze. See below for the benefits of our foot bath.', vizTitle: 'Onsen & a drink — the synergy', vizSubtitle: 'Effects of foot bath and a drink at the bar', vizMatch: 'Onsen & alcohol pairing', vizRelax: 'Relaxation', vizEmotional: 'Emotional stability', vizCirculation: 'Circulation & fatigue relief', vizSleep: 'Better sleep', title1: 'Warm spring water', desc1: 'Natural hot springs of Yunokawa. Let the ~40°C water slowly ease you from your feet up.', title2: 'Open, airy space', desc2: 'Outdoor footbath area. Enjoy an open moment with the night breeze.', title3: 'Soothe your journey', desc3: 'Soak your tired feet in warm water. A relaxed evening in Hakodate.', desc: 'We\'ve captured the aesthetics of traditional Japanese wood architecture. Forget the noise of daily life in our cypress-scented outdoor bath and feel the breeze of the seasons.' },
-            bar: { title: 'Bar', programIntro: 'YUEN Bar operates on a regional beverage curation system.', frameworkTitle: 'Bar program structure', section1Title: 'Selection criteria', section1Desc: 'Only items that meet direct partnership with local breweries and distilleries, quality verification (tasting and composition), and regional or limited-edition status are selected.', section2Title: 'Category system', section2Desc: 'Menu is classified into local sake (jizake), Japanese whisky, and original cocktails, with consistent categorization by origin and character within each category.', section3Title: 'Pairing with onsen', section3Desc: 'Menu design follows the principle of balance in strength, temperature, and taste, on the premise of moderate consumption after foot-bath-induced relaxation and improved circulation.', publicTitle: 'A drink we open together', publicDesc: 'YUEN Bar is not only a place for one person’s night—it is where the neighbourhood and the traveller meet. The selection criteria and menu structure above come from the idea that everyone should be able to receive that one drink on the same terms. Our ties to local breweries and our pairing with the onsen are so that drink is not merely a product, but a shared moment that exists only here.', desc: 'Original cocktails featuring selected Japanese whiskey and local sake. Enjoy an adult moment with the gentle flow of jazz.', hakodateTitle: 'Hakodate Sake & Spirits', hakodateDesc: 'At YUEN Bar we focus on Hokkaido and Hakodate local sake and Japanese whisky. Enjoy the night with our original cocktails made with regional sake and limited-edition whiskies.', recommendTitle: 'Recommended', item1Name: 'Hakodate local sake', item1Desc: 'Hokkaido · Hakodate jizake', item1Price: '¥1,200 (tax incl.)', item2Name: 'Japanese whisky', item2Desc: 'Regional limited · single malt', item2Price: '¥1,800 (tax incl.)', item3Name: 'Original cocktail', item3Desc: 'Sake or whisky base', item3Price: '¥1,500 (tax incl.)', glassTitle: 'The vessel for your drink', glassDesc: 'At YUEN Bar we serve your drink in an original glass made for that purpose. As a vessel that holds the boundary between the spring and the spirit, each curve was shaped for the hand and the lip. We pour our local sake, whisky, and cocktails into this glass.' },
+            bar: { title: '03. Bar', programIntro: 'YUEN Bar operates on a regional beverage curation system.', frameworkTitle: 'Bar program structure', section1Title: 'Selection criteria', section1Desc: 'Only items that meet direct partnership with local breweries and distilleries, quality verification (tasting and composition), and regional or limited-edition status are selected.', section2Title: 'Category system', section2Desc: 'Menu is classified into local sake (jizake), Japanese whisky, and original cocktails, with consistent categorization by origin and character within each category.', section3Title: 'Pairing with onsen', section3Desc: 'Menu design follows the principle of balance in strength, temperature, and taste, on the premise of moderate consumption after foot-bath-induced relaxation and improved circulation.', publicTitle: 'A drink we open together', publicDesc: 'YUEN Bar is not only a place for one person’s night—it is where the neighbourhood and the traveller meet. The selection criteria and menu structure above come from the idea that everyone should be able to receive that one drink on the same terms. Our ties to local breweries and our pairing with the onsen are so that drink is not merely a product, but a shared moment that exists only here.', desc: 'Original cocktails featuring selected Japanese whiskey and local sake.<br>Enjoy an adult moment with the gentle flow of jazz.', hakodateTitle: 'Hakodate Sake & Spirits', hakodateDesc: 'At YUEN Bar we focus on Hokkaido and Hakodate local sake and Japanese whisky. Enjoy the night with our original cocktails made with regional sake and limited-edition whiskies.', recommendTitle: 'Recommended', item1Name: 'Hakodate local sake', item1Desc: 'Hokkaido · Hakodate jizake', item1Price: '¥1,200 (tax incl.)', item2Name: 'Japanese whisky', item2Desc: 'Regional limited · single malt', item2Price: '¥1,800 (tax incl.)', item3Name: 'Original cocktail', item3Desc: 'Sake or whisky base', item3Price: '¥1,500 (tax incl.)', glassTitle: 'The vessel for your drink', glassDesc: 'At YUEN Bar we serve your drink in an original glass made for that purpose. As a vessel that holds the boundary between the spring and the spirit, each curve was shaped for the hand and the lip. We pour our local sake, whisky, and cocktails into this glass.' },
             footbath: {
                 title: '02. Benefits of foot bath',
                 benefit1Title: 'Better circulation',
                 benefit1Desc: 'Warm water widens blood vessels in the feet and improves blood flow.',
+                benefit1TitleDetail: 'Better circulation & relief from cold',
+                benefit1DescDetail: 'Warming your feet helps blood flow more easily from the extremities to the whole body.<br>Relief for cold toes and ankles<br>Recovery for legs tired from standing or walking<br>A sense of warmth spreading through the body<br>A foot bath after a walk around Yunokawa is a quiet moment to reset the fatigue of the day.',
                 benefit2Title: 'Relief from fatigue',
                 benefit2Desc: 'A foot soak relaxes muscles and eases tiredness so you feel lighter.',
+                benefit2TitleDetail: 'Calming the nervous system, toward deep rest',
+                benefit2DescDetail: 'Foot baths are said to ease sympathetic arousal and encourage the parasympathetic system.<br>Breathing naturally deepens<br>Physical tension eases<br>Your mind settles<br>This is not a time to “do something”—it is a time to return to a state where you need do nothing.',
                 benefit3Title: 'Sleep & relaxation',
-                benefit3Desc: 'An evening foot bath helps calm body and mind for better sleep.'
+                benefit3Desc: 'An evening foot bath helps calm body and mind for better sleep.',
+                benefit3TitleDetail: 'For better sleep quality',
+                benefit3DescDetail: 'Warming your feet before bed helps align your body’s rhythm and ease the transition into natural sleep.<br>Falling asleep becomes easier<br>Waking in the night becomes less likely<br>Waking in the morning feels gentler<br>At YUEN we suggest about 10–20 minutes for the foot bath.'
             },
             guide: {
                 flowTitle: 'How to use the space',
                 flowIntro: 'The spring loosens; the drink connects. At YUEN you enjoy a drink while soaking your feet.',
-                flow1: 'On arrival, please follow the staff\'s guidance to the foot bath and bar area.',
-                flow2: 'You can order from the bar and enjoy a drink while your feet are in the foot bath.',
-                flow3: 'Use the coaster to show your language or silence without speaking.',
+                flow1: 'Soak your feet<br>After you arrive, rest with your feet in the hot spring. You can use the foot bath for about 10–20 minutes while fully clothed.<br>A time to slowly ease the fatigue of walking and the tension of the day.',
+                flow2: 'Choose a drink<br>While in the foot bath, choose a drink from the bar menu.<br>At YUEN we work with local sake and spirit makers to offer drinks we value for their story and place, not just quantity.',
+                flow3: 'Find your own pace<br>Whether you prefer to sit in silence or share the space with others, there is no single “right” way to be here.<br>You don’t have to talk, and you can talk if you like. That choice is yours.',
                 stillnessTitle: 'For your stillness',
-                stillnessDesc: 'We are the mediators who watch over your quiet. We do not speak—we only watch—so please relax. Use the coaster to show your language or silence, and respect the time of those who show the black side.'
+                stillnessDesc: 'YUEN is not a place that assumes you will be spoken to. If you want to spend your time in silence, you don\'t have to make conversation. Simply being there is enough.'
             },
             coaster: {
                 sectionTitle: 'Coaster',
@@ -185,7 +209,9 @@
                 red: 'Red — I can speak Japanese.',
                 blue: 'Blue — I can speak Korean.',
                 yellow: 'Yellow — I can speak English.',
-                black: 'Black side up — Please don’t speak to me. When you want time alone.'
+                black: 'Black side up — Please don’t speak to me. When you want time alone.',
+                publicTitle: 'The kind of public space YUEN aims for',
+                publicDesc: 'Foot baths are a highly accessible bathing culture: anyone can use them for a short time, regardless of age or gender.<br>YUEN aims to be a public space at the right distance—neither over-managed nor neglected—by drawing on that character.'
             },
             event: {
                 title: '04. Event',
@@ -209,6 +235,7 @@
             },
             location: {
                 title: 'LOCATION',
+                previewTitle: 'View of the space',
                 criteriaTitle: 'Why this place',
                 criteria1: 'YUEN stands at the boundary where the god of the spring and the god of drink meet. We chose a place where you can feel that boundary.',
                 criteria2: 'Hakodate Yunokawa is a town where the hot spring flows. We did not choose the main street but a quiet alley. So that the space remains a mediator between the daytime onsen district and the evening drink—we do not speak; we only watch.',

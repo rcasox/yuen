@@ -53,7 +53,24 @@
     <header class="page-hero">
         <h1 class="section-title-jp text-3xl text-center sub-gold" data-i18n="location.title">위치</h1>
         <span class="title-line" aria-hidden="true"></span>
+        <div class="door-wrap flex justify-center mt-8">
+            <div class="relative inline-block w-full max-w-2xl">
+                <img src="../image/door.png" alt="YUEN entrance" class="door-img w-full rounded-lg object-contain block">
+                <button type="button" class="door-hotspot absolute rounded-full cursor-pointer border-0 bg-transparent hover:ring-4 hover:ring-[#C9A24D]/40 focus:outline-none focus:ring-4 focus:ring-[#C9A24D]/50 focus:ring-offset-2 transition-all flex items-center justify-center" id="door-hotspot" aria-label="공간 영상 보기"><span class="door-hotspot-label">Click</span></button>
+            </div>
+        </div>
     </header>
+
+    <!-- 모달: 동그란 영역 클릭 시 문이 열리며 공간 영상 재생 -->
+    <div class="location-video-modal fixed inset-0 z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" id="location-video-modal" aria-hidden="true">
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-sm transition-opacity duration-500" id="location-video-backdrop" aria-hidden="true"></div>
+        <div class="location-video-portal relative w-full max-w-4xl bg-[#1a1a1a] rounded-lg overflow-hidden shadow-2xl" id="location-video-portal">
+            <button type="button" class="location-video-close absolute top-3 right-3 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white text-2xl hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-[#C9A24D] opacity-0 transition-opacity duration-300" id="location-video-close" aria-label="닫기">&times;</button>
+            <div class="location-video-inner opacity-0 transition-opacity duration-500">
+                <video id="location-video-player" class="w-full h-auto block" style="height: clamp(280px, 70vh, 560px); object-fit: cover;" src="../video/space2.mp4" controls playsinline></video>
+            </div>
+        </div>
+    </div>
 
     <main class="py-16 px-8 max-w-6xl mx-auto">
         <section class="mb-16">
@@ -66,10 +83,10 @@
             </div>
         </section>
 
-        <p class="text-center text-[#2B2B2B]/90 text-lg mb-10" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
-        <div class="flex justify-center mb-16">
+        <div class="flex justify-center mb-6">
             <img src="../image/adr.png" alt="Location map" class="location-map w-full max-w-3xl rounded-lg shadow-lg object-contain">
         </div>
+        <p class="text-center text-[#2B2B2B]/90 text-lg mb-16" data-i18n="footer.address">北海道函館市湯川町静かな路地 123-4</p>
 
         <section>
             <h2 class="section-title-jp text-xl text-center sub-gold mb-6" data-i18n="location.accessTitle">오는 길</h2>
@@ -99,5 +116,49 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>
+    (function() {
+        var hotspot = document.getElementById('door-hotspot');
+        var modal = document.getElementById('location-video-modal');
+        var portal = document.getElementById('location-video-portal');
+        var inner = modal && modal.querySelector('.location-video-inner');
+        var backdrop = document.getElementById('location-video-backdrop');
+        var closeBtn = document.getElementById('location-video-close');
+        var video = document.getElementById('location-video-player');
+        if (!hotspot || !modal || !video || !portal) return;
+
+        function openVideo() {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            portal.classList.remove('portal-open');
+            if (inner) inner.classList.remove('video-visible');
+            video.currentTime = 0;
+            video.pause();
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    portal.classList.add('portal-open');
+                    if (inner) setTimeout(function() { inner.classList.add('video-visible'); }, 350);
+                    setTimeout(function() { video.play().catch(function() {}); }, 450);
+                });
+            });
+        }
+        function closeVideo() {
+            portal.classList.remove('portal-open');
+            if (inner) inner.classList.remove('video-visible');
+            video.pause();
+            setTimeout(function() {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+            }, 200);
+        }
+
+        hotspot.addEventListener('click', openVideo);
+        if (backdrop) backdrop.addEventListener('click', closeVideo);
+        if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+        modal.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeVideo();
+        });
+    })();
+    </script>
 </body>
 </html>
