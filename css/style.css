@@ -289,6 +289,10 @@ body .img-wrap-jp img {
         transform-origin: center center;
     }
 }
+.nav-mobile-overlay {
+    justify-content: flex-start;
+    padding-top: 28vh;
+}
 .nav-mobile-overlay.is-open {
     opacity: 1;
     pointer-events: auto;
